@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D4004121B24DEB3009E7A2D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004111B24DEB3009E7A2D /* SWRevealViewController.m */; };
 		3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40045A1B2507D7009E7A2D /* StandingsCell.xib */; };
 		3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */; };
 		3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */; };
@@ -65,8 +64,6 @@
 
 /* Begin PBXFileReference section */
 		33B24E98B1BF1B587EBDF7BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D4004101B24DEB3009E7A2D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		3D4004111B24DEB3009E7A2D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		3D40045A1B2507D7009E7A2D /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
 		3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandingsTableViewCell.h; sourceTree = "<group>"; };
 		3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsTableViewCell.m; sourceTree = "<group>"; };
@@ -218,8 +215,6 @@
 				3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */,
 				3D525E4A1B42DB2500C964A4 /* AdvancedStandingsTableViewController.h */,
 				3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */,
-				3D4004101B24DEB3009E7A2D /* SWRevealViewController.h */,
-				3D4004111B24DEB3009E7A2D /* SWRevealViewController.m */,
 				3D8286001B05AE7600E948BE /* AppDelegate.h */,
 				3D8286011B05AE7600E948BE /* AppDelegate.m */,
 				3D8286031B05AE7600E948BE /* ViewController.h */,
@@ -462,7 +457,6 @@
 				3DB411421B1D3C2400A609B5 /* CreateLeagueViewController.m in Sources */,
 				3D525E4C1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m in Sources */,
 				3D616FCA1B1AA9AF0044E88B /* AddGameViewController.m in Sources */,
-				3D4004121B24DEB3009E7A2D /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
