@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D4004121B24DEB3009E7A2D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004111B24DEB3009E7A2D /* SWRevealViewController.m */; };
+		3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40045A1B2507D7009E7A2D /* StandingsCell.xib */; };
+		3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */; };
+		3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */; };
+		3D4E9A911B12929E00A3B986 /* LeaguesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */; };
+		3D525E431B42D52D00C964A4 /* AdvancedStandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */; };
+		3D525E491B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */; };
+		3D525E4C1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */; };
+		3D5DC65C1B16A63900C72049 /* StandingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5DC65B1B16A63900C72049 /* StandingsViewController.m */; };
+		3D5DC6621B16A65500C72049 /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */; };
+		3D616FC51B1A7D760044E88B /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FC41B1A7D760044E88B /* League.m */; };
+		3D616FC71B1AA8870044E88B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D616FC61B1AA8870044E88B /* MapKit.framework */; };
+		3D616FCA1B1AA9AF0044E88B /* AddGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FC91B1AA9AF0044E88B /* AddGameViewController.m */; };
+		3D616FCD1B1BD09D0044E88B /* SearchLeagueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */; };
+		3D616FD01B1BE2060044E88B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FCF1B1BE2060044E88B /* User.m */; };
 		3D8285FF1B05AE7600E948BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8285FE1B05AE7600E948BE /* main.m */; };
 		3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286011B05AE7600E948BE /* AppDelegate.m */; };
 		3D8286051B05AE7600E948BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286041B05AE7600E948BE /* ViewController.m */; };
@@ -14,6 +29,28 @@
 		3D82860A1B05AE7600E948BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8286091B05AE7600E948BE /* Images.xcassets */; };
 		3D82860D1B05AE7600E948BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D82860B1B05AE7600E948BE /* LaunchScreen.xib */; };
 		3D8286191B05AE7600E948BE /* myLeagueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286181B05AE7600E948BE /* myLeagueTests.m */; };
+		3D82862F1B05AF0200E948BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D82862E1B05AF0200E948BE /* AudioToolbox.framework */; };
+		3D8286311B05AF0900E948BE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8286301B05AF0900E948BE /* CFNetwork.framework */; };
+		3D8286331B05AF0F00E948BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8286321B05AF0F00E948BE /* CoreGraphics.framework */; };
+		3D8286351B05AF1700E948BE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8286341B05AF1700E948BE /* CoreLocation.framework */; };
+		3D8286371B05AF1F00E948BE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8286361B05AF1F00E948BE /* MobileCoreServices.framework */; };
+		3D8286391B05AF2600E948BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8286381B05AF2600E948BE /* QuartzCore.framework */; };
+		3D82863B1B05AF2D00E948BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D82863A1B05AF2D00E948BE /* Security.framework */; };
+		3D82863D1B05AF3400E948BE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D82863C1B05AF3400E948BE /* StoreKit.framework */; };
+		3D82863F1B05AF3E00E948BE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D82863E1B05AF3E00E948BE /* SystemConfiguration.framework */; };
+		3D8286411B05AF4600E948BE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8286401B05AF4600E948BE /* libz.dylib */; };
+		3D8286431B05AF5000E948BE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8286421B05AF5000E948BE /* libsqlite3.dylib */; };
+		3D9D9CBB1B378D7200517FE8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D9CBA1B378D7200517FE8 /* ProfileViewController.m */; };
+		3DAF47B51B22886200EE2D38 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47B01B22886200EE2D38 /* Bolts.framework */; };
+		3DAF47B61B22886200EE2D38 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47B11B22886200EE2D38 /* Parse.framework */; };
+		3DAF47B71B22886200EE2D38 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47B21B22886200EE2D38 /* ParseCrashReporting.framework */; };
+		3DAF47B81B22886200EE2D38 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47B31B22886200EE2D38 /* ParseFacebookUtils.framework */; };
+		3DAF47B91B22886200EE2D38 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47B41B22886200EE2D38 /* ParseUI.framework */; };
+		3DAF47BB1B228D8500EE2D38 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47BA1B228D8500EE2D38 /* Accounts.framework */; };
+		3DAF47BD1B228D8900EE2D38 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47BC1B228D8900EE2D38 /* Social.framework */; };
+		3DB411421B1D3C2400A609B5 /* CreateLeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */; };
+		3DF50F751B32645500C2360D /* RequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF50F741B32645500C2360D /* RequestsTableViewController.m */; };
+		7DAA14B43E84937AE97043BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B24E98B1BF1B587EBDF7BB /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +64,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33B24E98B1BF1B587EBDF7BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D4004101B24DEB3009E7A2D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		3D4004111B24DEB3009E7A2D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		3D40045A1B2507D7009E7A2D /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
+		3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandingsTableViewCell.h; sourceTree = "<group>"; };
+		3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsTableViewCell.m; sourceTree = "<group>"; };
+		3D40045F1B2CA76E009E7A2D /* AddUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserTableViewController.h; sourceTree = "<group>"; };
+		3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserTableViewController.m; sourceTree = "<group>"; };
+		3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguesListViewController.h; sourceTree = "<group>"; };
+		3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguesListViewController.m; sourceTree = "<group>"; };
+		3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedStandingsCell.xib; sourceTree = "<group>"; };
+		3D525E471B42D6E700C964A4 /* AdvancedStandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedStandingsTableViewCell.h; sourceTree = "<group>"; };
+		3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedStandingsTableViewCell.m; sourceTree = "<group>"; };
+		3D525E4A1B42DB2500C964A4 /* AdvancedStandingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedStandingsTableViewController.h; sourceTree = "<group>"; };
+		3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedStandingsTableViewController.m; sourceTree = "<group>"; };
+		3D5DC65A1B16A63900C72049 /* StandingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandingsViewController.h; sourceTree = "<group>"; };
+		3D5DC65B1B16A63900C72049 /* StandingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsViewController.m; sourceTree = "<group>"; };
+		3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
+		3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
+		3D616FC31B1A7D760044E88B /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
+		3D616FC41B1A7D760044E88B /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
+		3D616FC61B1AA8870044E88B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D616FC81B1AA9AF0044E88B /* AddGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGameViewController.h; sourceTree = "<group>"; };
+		3D616FC91B1AA9AF0044E88B /* AddGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGameViewController.m; sourceTree = "<group>"; };
+		3D616FCB1B1BD09D0044E88B /* SearchLeagueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchLeagueTableViewController.h; sourceTree = "<group>"; };
+		3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchLeagueTableViewController.m; sourceTree = "<group>"; };
+		3D616FCE1B1BE2060044E88B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3D616FCF1B1BE2060044E88B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3D8285F91B05AE7600E948BE /* myLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8285FD1B05AE7600E948BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D8285FE1B05AE7600E948BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +105,32 @@
 		3D8286121B05AE7600E948BE /* myLeagueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myLeagueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8286171B05AE7600E948BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D8286181B05AE7600E948BE /* myLeagueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myLeagueTests.m; sourceTree = "<group>"; };
+		3D82862E1B05AF0200E948BE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3D8286301B05AF0900E948BE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3D8286321B05AF0F00E948BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3D8286341B05AF1700E948BE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3D8286361B05AF1F00E948BE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3D8286381B05AF2600E948BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3D82863A1B05AF2D00E948BE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3D82863C1B05AF3400E948BE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3D82863E1B05AF3E00E948BE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3D8286401B05AF4600E948BE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3D8286421B05AF5000E948BE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		3D9D9CB91B378D7200517FE8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		3D9D9CBA1B378D7200517FE8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		3DAF47B01B22886200EE2D38 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.6.1/Bolts.framework"; sourceTree = "<group>"; };
+		3DAF47B11B22886200EE2D38 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.6.1/Parse.framework"; sourceTree = "<group>"; };
+		3DAF47B21B22886200EE2D38 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = "../../../Downloads/parse-library-1.6.1/ParseCrashReporting.framework"; sourceTree = "<group>"; };
+		3DAF47B31B22886200EE2D38 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../Downloads/parse-library-1.6.1/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		3DAF47B41B22886200EE2D38 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../Downloads/parse-library-1.6.1/ParseUI.framework"; sourceTree = "<group>"; };
+		3DAF47BA1B228D8500EE2D38 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		3DAF47BC1B228D8900EE2D38 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		3DB411401B1D3C2400A609B5 /* CreateLeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateLeagueViewController.h; sourceTree = "<group>"; };
+		3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLeagueViewController.m; sourceTree = "<group>"; };
+		3DF50F731B32645500C2360D /* RequestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsTableViewController.h; sourceTree = "<group>"; };
+		3DF50F741B32645500C2360D /* RequestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsTableViewController.m; sourceTree = "<group>"; };
+		A1968646EF1BEFA77A9AB7D4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C55DB9D2F655CF93D65A5B1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +138,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAF47BD1B228D8900EE2D38 /* Social.framework in Frameworks */,
+				3DAF47BB1B228D8500EE2D38 /* Accounts.framework in Frameworks */,
+				3D616FC71B1AA8870044E88B /* MapKit.framework in Frameworks */,
+				3D8286431B05AF5000E948BE /* libsqlite3.dylib in Frameworks */,
+				3D8286411B05AF4600E948BE /* libz.dylib in Frameworks */,
+				3D82863F1B05AF3E00E948BE /* SystemConfiguration.framework in Frameworks */,
+				3D82863D1B05AF3400E948BE /* StoreKit.framework in Frameworks */,
+				3D82863B1B05AF2D00E948BE /* Security.framework in Frameworks */,
+				3D8286391B05AF2600E948BE /* QuartzCore.framework in Frameworks */,
+				3D8286371B05AF1F00E948BE /* MobileCoreServices.framework in Frameworks */,
+				3D8286351B05AF1700E948BE /* CoreLocation.framework in Frameworks */,
+				3D8286331B05AF0F00E948BE /* CoreGraphics.framework in Frameworks */,
+				3D8286311B05AF0900E948BE /* CFNetwork.framework in Frameworks */,
+				3DAF47B51B22886200EE2D38 /* Bolts.framework in Frameworks */,
+				3DAF47B61B22886200EE2D38 /* Parse.framework in Frameworks */,
+				3DAF47B71B22886200EE2D38 /* ParseCrashReporting.framework in Frameworks */,
+				3DAF47B81B22886200EE2D38 /* ParseFacebookUtils.framework in Frameworks */,
+				3DAF47B91B22886200EE2D38 /* ParseUI.framework in Frameworks */,
+				3D82862F1B05AF0200E948BE /* AudioToolbox.framework in Frameworks */,
+				7DAA14B43E84937AE97043BD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +171,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D4004091B234A74009E7A2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D8286421B05AF5000E948BE /* libsqlite3.dylib */,
+				3D8286401B05AF4600E948BE /* libz.dylib */,
+				3D82863E1B05AF3E00E948BE /* SystemConfiguration.framework */,
+				3D82863C1B05AF3400E948BE /* StoreKit.framework */,
+				3D82863A1B05AF2D00E948BE /* Security.framework */,
+				3D8286381B05AF2600E948BE /* QuartzCore.framework */,
+				3D8286361B05AF1F00E948BE /* MobileCoreServices.framework */,
+				3D8286341B05AF1700E948BE /* CoreLocation.framework */,
+				3D8286321B05AF0F00E948BE /* CoreGraphics.framework */,
+				3D8286301B05AF0900E948BE /* CFNetwork.framework */,
+				3D82862E1B05AF0200E948BE /* AudioToolbox.framework */,
+				3D616FC61B1AA8870044E88B /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D8285F01B05AE7600E948BE = {
 			isa = PBXGroup;
 			children = (
+				3D4004091B234A74009E7A2D /* Frameworks */,
 				3D8285FB1B05AE7600E948BE /* myLeague */,
 				3D8286151B05AE7600E948BE /* myLeagueTests */,
 				3D8285FA1B05AE7600E948BE /* Products */,
+				9726AC6B128F0A1963050EB3 /* Pods */,
+				F710CBB538C81CECD1310C27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,14 +214,46 @@
 		3D8285FB1B05AE7600E948BE /* myLeague */ = {
 			isa = PBXGroup;
 			children = (
+				3D525E471B42D6E700C964A4 /* AdvancedStandingsTableViewCell.h */,
+				3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */,
+				3D525E4A1B42DB2500C964A4 /* AdvancedStandingsTableViewController.h */,
+				3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */,
+				3D4004101B24DEB3009E7A2D /* SWRevealViewController.h */,
+				3D4004111B24DEB3009E7A2D /* SWRevealViewController.m */,
 				3D8286001B05AE7600E948BE /* AppDelegate.h */,
 				3D8286011B05AE7600E948BE /* AppDelegate.m */,
 				3D8286031B05AE7600E948BE /* ViewController.h */,
 				3D8286041B05AE7600E948BE /* ViewController.m */,
+				3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */,
+				3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */,
 				3D8286061B05AE7600E948BE /* Main.storyboard */,
+				3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */,
+				3D9D9CB91B378D7200517FE8 /* ProfileViewController.h */,
+				3D9D9CBA1B378D7200517FE8 /* ProfileViewController.m */,
+				3DF50F731B32645500C2360D /* RequestsTableViewController.h */,
+				3DF50F741B32645500C2360D /* RequestsTableViewController.m */,
+				3D40045F1B2CA76E009E7A2D /* AddUserTableViewController.h */,
+				3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */,
+				3DB411401B1D3C2400A609B5 /* CreateLeagueViewController.h */,
+				3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */,
+				3D616FCB1B1BD09D0044E88B /* SearchLeagueTableViewController.h */,
+				3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */,
+				3D616FCE1B1BE2060044E88B /* User.h */,
+				3D616FCF1B1BE2060044E88B /* User.m */,
+				3D5DC65A1B16A63900C72049 /* StandingsViewController.h */,
+				3D5DC65B1B16A63900C72049 /* StandingsViewController.m */,
+				3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */,
+				3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */,
+				3D40045A1B2507D7009E7A2D /* StandingsCell.xib */,
+				3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */,
+				3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */,
 				3D8286091B05AE7600E948BE /* Images.xcassets */,
 				3D82860B1B05AE7600E948BE /* LaunchScreen.xib */,
 				3D8285FC1B05AE7600E948BE /* Supporting Files */,
+				3D616FC31B1A7D760044E88B /* League.h */,
+				3D616FC41B1A7D760044E88B /* League.m */,
+				3D616FC81B1AA9AF0044E88B /* AddGameViewController.h */,
+				3D616FC91B1AA9AF0044E88B /* AddGameViewController.m */,
 			);
 			path = myLeague;
 			sourceTree = "<group>";
@@ -119,6 +284,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9726AC6B128F0A1963050EB3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1968646EF1BEFA77A9AB7D4 /* Pods.debug.xcconfig */,
+				C55DB9D2F655CF93D65A5B1B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F710CBB538C81CECD1310C27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DAF47BC1B228D8900EE2D38 /* Social.framework */,
+				3DAF47BA1B228D8500EE2D38 /* Accounts.framework */,
+				3DAF47B01B22886200EE2D38 /* Bolts.framework */,
+				3DAF47B11B22886200EE2D38 /* Parse.framework */,
+				3DAF47B21B22886200EE2D38 /* ParseCrashReporting.framework */,
+				3DAF47B31B22886200EE2D38 /* ParseFacebookUtils.framework */,
+				3DAF47B41B22886200EE2D38 /* ParseUI.framework */,
+				33B24E98B1BF1B587EBDF7BB /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +315,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D82861C1B05AE7600E948BE /* Build configuration list for PBXNativeTarget "myLeague" */;
 			buildPhases = (
+				943A7C4FA3A2D4662C127E16 /* Check Pods Manifest.lock */,
 				3D8285F51B05AE7600E948BE /* Sources */,
 				3D8285F61B05AE7600E948BE /* Frameworks */,
 				3D8285F71B05AE7600E948BE /* Resources */,
+				C42B87AB035BFE6D8315D4D2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,7 +390,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D525E431B42D52D00C964A4 /* AdvancedStandingsCell.xib in Resources */,
 				3D8286081B05AE7600E948BE /* Main.storyboard in Resources */,
+				3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */,
 				3D82860D1B05AE7600E948BE /* LaunchScreen.xib in Resources */,
 				3D82860A1B05AE7600E948BE /* Images.xcassets in Resources */,
 			);
@@ -214,14 +407,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		943A7C4FA3A2D4662C127E16 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C42B87AB035BFE6D8315D4D2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3D8285F51B05AE7600E948BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF50F751B32645500C2360D /* RequestsTableViewController.m in Sources */,
+				3D616FD01B1BE2060044E88B /* User.m in Sources */,
+				3D9D9CBB1B378D7200517FE8 /* ProfileViewController.m in Sources */,
+				3D616FCD1B1BD09D0044E88B /* SearchLeagueTableViewController.m in Sources */,
+				3D5DC65C1B16A63900C72049 /* StandingsViewController.m in Sources */,
 				3D8286051B05AE7600E948BE /* ViewController.m in Sources */,
+				3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */,
 				3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */,
+				3D616FC51B1A7D760044E88B /* League.m in Sources */,
+				3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */,
+				3D5DC6621B16A65500C72049 /* NewsFeedViewController.m in Sources */,
 				3D8285FF1B05AE7600E948BE /* main.m in Sources */,
+				3D4E9A911B12929E00A3B986 /* LeaguesListViewController.m in Sources */,
+				3D525E491B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m in Sources */,
+				3DB411421B1D3C2400A609B5 /* CreateLeagueViewController.m in Sources */,
+				3D525E4C1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m in Sources */,
+				3D616FCA1B1AA9AF0044E88B /* AddGameViewController.m in Sources */,
+				3D4004121B24DEB3009E7A2D /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,20 +586,44 @@
 		};
 		3D82861D1B05AE7600E948BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1968646EF1BEFA77A9AB7D4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/bhafenri/Downloads/parse-library-1.7.2",
+					"/Users/bhafenri/Downloads/parse-library-1.6.1",
+				);
 				INFOPLIST_FILE = myLeague/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-l\"Pods-MMDrawerController\"",
+					"-framework",
+					"\"QuartzCore\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		3D82861E1B05AE7600E948BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C55DB9D2F655CF93D65A5B1B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/bhafenri/Downloads/parse-library-1.7.2",
+					"/Users/bhafenri/Downloads/parse-library-1.6.1",
+				);
 				INFOPLIST_FILE = myLeague/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-l\"Pods-MMDrawerController\"",
+					"-framework",
+					"\"QuartzCore\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -416,6 +681,7 @@
 				3D82861E1B05AE7600E948BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D82861F1B05AE7600E948BE /* Build configuration list for PBXNativeTarget "myLeagueTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +690,7 @@
 				3D8286211B05AE7600E948BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

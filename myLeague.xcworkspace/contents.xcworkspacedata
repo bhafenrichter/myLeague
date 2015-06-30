@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:AdvancedStandingsTableViewCell.h">
+   </FileRef>
+   <FileRef
+      location = "group:AdvancedStandingsTableViewCell.m">
+   </FileRef>
+   <FileRef
+      location = "group:myLeague.xcodeproj">
+   </FileRef>
+</Workspace>
