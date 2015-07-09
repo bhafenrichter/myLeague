@@ -10,9 +10,6 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "League.h"
-#import "MMDrawerController.h"
-#import "MMDrawerBarButtonItem.h"
-#import "SWRevealViewController.h"
 #import "StandingsTableViewCell.h"
 #import "ProfileViewController.h"
 #import "AdvancedStandingsTableViewController.h"
@@ -79,7 +76,7 @@
     self.gameView.layer.cornerRadius = 10;
     self.gameView.layer.masksToBounds = YES;
     
-    [self setupStandingsTable];
+    //[self setupStandingsTable];
     [self setupNavBar];
     [self createScoreboard];
 }
@@ -89,11 +86,15 @@
     self.standingsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     PFQuery *query = [PFQuery queryWithClassName:@"UserLeague"];
     [query whereKey:@"LeagueID" containsString:self.league.leagueId];
+    [query orderByDescending:@"Wins"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if(!error){
             self.members = [[NSArray alloc] initWithArray:objects];
-            [self.standingsTable reloadData];
-            NSLog(@"%@", self.members);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.standingsTable reloadData];
+            });
+            
+            //NSLog(@"%@", self.members);
         }
     }];
 }
@@ -189,6 +190,10 @@
                 homeTeam.text = [NSString stringWithFormat:@"%@ %@", [user1 objectForKey:@"firstName"], [user1 objectForKey:@"lastName"]];
                 [cur addSubview:homeTeam];
                 
+                //UIImageView *homePic = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 40, 25, 25)];
+                //homePic.image = [UIImage imageNamed:@"blank-user"];
+                //[cur addSubview:homePic];
+                
                 UILabel *awayTeam = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 250, 15)];
                 awayTeam.textColor=[UIColor blackColor];
                 PFObject *user2 = [userQuery getObjectWithId:[[objects objectAtIndex:i] objectForKey:@"opponentID"]];
@@ -264,6 +269,8 @@
     }
 }
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"StandingsCell";
@@ -279,11 +286,28 @@
     cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
     cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
     
-    NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
-    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-    cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
-    cell.thumbnailImageView.layer.cornerRadius = 20;
-    cell.thumbnailImageView.layer.masksToBounds = YES;
+    cell.thumbnailImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
+    
+    dispatch_async(kBgQueue, ^{
+        NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
+        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+        if (imageData) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            if (image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    StandingsTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                    if (updateCell){
+                        updateCell.thumbnailImageView.image = image;
+                        cell.thumbnailImageView.layer.cornerRadius = 20;
+                        cell.thumbnailImageView.layer.masksToBounds = YES;
+                    }
+                });
+            }
+        }
+    });
+    
+    //cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
+
     return cell;
 }
 

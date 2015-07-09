@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "League.h"
-#import "UIViewController+MMDrawerController.h"
 
 @interface NewsFeedViewController : ViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) League *league;

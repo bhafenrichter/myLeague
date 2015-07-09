@@ -18,24 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6H-Tl-bUC">
-                                <rect key="frame" x="72" y="300" width="230" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6H-Tl-bUC">
+                                <rect key="frame" x="72" y="112" width="230" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DvH-Fi-6A9" customClass="PFTextField">
-                                <rect key="frame" x="72" y="338" width="230" height="30"/>
+                                <rect key="frame" x="72" y="150" width="230" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNK-52-UiG">
-                                <rect key="frame" x="72" y="376" width="107" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNK-52-UiG">
+                                <rect key="frame" x="72" y="188" width="107" height="30"/>
                                 <state key="normal" title="Create Account">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-go-f1n">
-                                <rect key="frame" x="264" y="376" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-go-f1n">
+                                <rect key="frame" x="264" y="188" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -51,9 +51,7 @@
                             <constraint firstItem="gdD-go-f1n" firstAttribute="top" secondItem="DvH-Fi-6A9" secondAttribute="bottom" constant="8" id="JxX-4A-d7d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gdD-go-f1n" secondAttribute="trailing" constant="57" id="SvD-h0-zUe"/>
                             <constraint firstItem="mNK-52-UiG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="56" id="gmq-0D-q7u"/>
-                            <constraint firstItem="X6H-Tl-bUC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="280" id="nHf-hx-AWz"/>
                             <constraint firstItem="X6H-Tl-bUC" firstAttribute="width" secondItem="DvH-Fi-6A9" secondAttribute="width" id="twK-mp-vEb"/>
-                            <constraint firstItem="mNK-52-UiG" firstAttribute="top" secondItem="DvH-Fi-6A9" secondAttribute="bottom" constant="8" id="xQW-Mc-IiJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yFE-xk-Ekx"/>
@@ -835,6 +833,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="ETQ-QI-5ok"/>
         <segue reference="eri-gs-5Vy"/>
-        <segue reference="7aZ-0U-G9b"/>
+        <segue reference="UoM-wr-X4H"/>
     </inferredMetricsTieBreakers>
 </document>
