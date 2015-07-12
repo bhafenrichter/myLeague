@@ -34,6 +34,7 @@
     //get selected leagueid
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     self.league = ap.selectedLeague;
+
     NSLog(@"%@", self.league.leagueName);
     self.actionBarTitle.title = self.league.leagueName;
     
@@ -73,8 +74,12 @@
     NSLog(@"%@", self.league.leagueName);
     self.actionBarTitle.title = self.league.leagueName;
     
+    //rounds corners
     self.gameView.layer.cornerRadius = 10;
     self.gameView.layer.masksToBounds = YES;
+    
+    self.standingsTable.layer.cornerRadius = 10;
+    self.standingsTable.layer.masksToBounds = YES;
     
     //[self setupStandingsTable];
     [self setupNavBar];
@@ -282,13 +287,19 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
-    cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
-    cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
-    
-    cell.thumbnailImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
+    //highlight user if thats the one currently logged in
+    AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+    if([[[self.members objectAtIndex:indexPath.row] objectForKey:@"UserID"] isEqualToString:ap.user.userID]){
+        cell.backgroundColor = [UIColor yellowColor];
+    }
     
     dispatch_async(kBgQueue, ^{
+        cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
+        cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
+        cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
+        
+        cell.thumbnailImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
+
         NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
         NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
         if (imageData) {

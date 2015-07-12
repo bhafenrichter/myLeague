@@ -8,6 +8,8 @@
 
 #import "AdvancedStandingsTableViewController.h"
 #import "AdvancedStandingsTableViewCell.h"
+#import "AppDelegate.h"
+
 @interface AdvancedStandingsTableViewController ()
 
 @end
@@ -16,12 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +36,7 @@
     return self.members.count;
 }
 
-
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"AdvancedStandingsCell";
     AdvancedStandingsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -50,17 +47,30 @@
         cell = [nib objectAtIndex:0];
     }
     
+    //highlight user if thats the one currently logged in
+    AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+    if([[[self.members objectAtIndex:indexPath.row] objectForKey:@"UserID"] isEqualToString:ap.user.userID]){
+        cell.backgroundColor = [UIColor yellowColor];
+    }
+    
+    dispatch_async(kBgQueue, ^{
+        NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
+        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
+            cell.thumbnailImageView.layer.cornerRadius = 20;
+            cell.thumbnailImageView.layer.masksToBounds = YES;
+        });
+        
+    });
+    
     cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
     cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
     cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
     cell.PPGLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"PointsScored"];
     cell.PALabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"PointsAllowed"];
     
-    NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
-    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-    cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
-    cell.thumbnailImageView.layer.cornerRadius = 20;
-    cell.thumbnailImageView.layer.masksToBounds = YES;
+    
     return cell;
 }
 

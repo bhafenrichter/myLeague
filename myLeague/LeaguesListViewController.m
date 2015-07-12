@@ -32,7 +32,7 @@
     //table setup
     self.leagueList.delegate = self;
     self.leagueList.dataSource = self;
-    
+    self.leagueList.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self getLeagues];
 }
 
@@ -67,20 +67,22 @@
     return self.leagues.count;
 }
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [self.leagueList dequeueReusableCellWithIdentifier:@"LeagueCell" forIndexPath:indexPath];
 
-    PFObject *curObject = [self.leagues objectAtIndex:indexPath.row];
-    NSString *leagueID = [curObject objectForKey:@"LeagueID"];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"League"];
-    PFObject *cur = [query getObjectWithId:leagueID];
-
-    NSLog(@"League Object: %@", cur);
-    
-    cell.textLabel.text = [cur objectForKey:@"LeagueName"];
-    cell.detailTextLabel.text = [cur objectForKey:@"LeagueType"];
-    
+    dispatch_async(kBgQueue, ^{
+        PFObject *curObject = [self.leagues objectAtIndex:indexPath.row];
+        NSString *leagueID = [curObject objectForKey:@"LeagueID"];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"League"];
+        PFObject *cur = [query getObjectWithId:leagueID];
+        
+        NSLog(@"League Object: %@", cur);
+        
+        cell.textLabel.text = [cur objectForKey:@"LeagueName"];
+        cell.detailTextLabel.text = [cur objectForKey:@"LeagueType"];
+    });
     return cell;
 }
 

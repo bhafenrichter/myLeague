@@ -14,7 +14,6 @@
 		3D525E431B42D52D00C964A4 /* AdvancedStandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */; };
 		3D525E491B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */; };
 		3D525E4C1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */; };
-		3D5DC65C1B16A63900C72049 /* StandingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5DC65B1B16A63900C72049 /* StandingsViewController.m */; };
 		3D5DC6621B16A65500C72049 /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */; };
 		3D616FC51B1A7D760044E88B /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FC41B1A7D760044E88B /* League.m */; };
 		3D616FC71B1AA8870044E88B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D616FC61B1AA8870044E88B /* MapKit.framework */; };
@@ -74,8 +73,6 @@
 		3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedStandingsTableViewCell.m; sourceTree = "<group>"; };
 		3D525E4A1B42DB2500C964A4 /* AdvancedStandingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedStandingsTableViewController.h; sourceTree = "<group>"; };
 		3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedStandingsTableViewController.m; sourceTree = "<group>"; };
-		3D5DC65A1B16A63900C72049 /* StandingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandingsViewController.h; sourceTree = "<group>"; };
-		3D5DC65B1B16A63900C72049 /* StandingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsViewController.m; sourceTree = "<group>"; };
 		3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 		3D616FC31B1A7D760044E88B /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
@@ -207,6 +204,7 @@
 			children = (
 				3D525E471B42D6E700C964A4 /* AdvancedStandingsTableViewCell.h */,
 				3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */,
+				3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */,
 				3D525E4A1B42DB2500C964A4 /* AdvancedStandingsTableViewController.h */,
 				3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */,
 				3D8286001B05AE7600E948BE /* AppDelegate.h */,
@@ -216,7 +214,6 @@
 				3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */,
 				3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */,
 				3D8286061B05AE7600E948BE /* Main.storyboard */,
-				3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */,
 				3D9D9CB91B378D7200517FE8 /* ProfileViewController.h */,
 				3D9D9CBA1B378D7200517FE8 /* ProfileViewController.m */,
 				3DF50F731B32645500C2360D /* RequestsTableViewController.h */,
@@ -229,8 +226,6 @@
 				3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */,
 				3D616FCE1B1BE2060044E88B /* User.h */,
 				3D616FCF1B1BE2060044E88B /* User.m */,
-				3D5DC65A1B16A63900C72049 /* StandingsViewController.h */,
-				3D5DC65B1B16A63900C72049 /* StandingsViewController.m */,
 				3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */,
 				3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */,
 				3D40045A1B2507D7009E7A2D /* StandingsCell.xib */,
@@ -394,7 +389,6 @@
 				3D616FD01B1BE2060044E88B /* User.m in Sources */,
 				3D9D9CBB1B378D7200517FE8 /* ProfileViewController.m in Sources */,
 				3D616FCD1B1BD09D0044E88B /* SearchLeagueTableViewController.m in Sources */,
-				3D5DC65C1B16A63900C72049 /* StandingsViewController.m in Sources */,
 				3D8286051B05AE7600E948BE /* ViewController.m in Sources */,
 				3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */,
 				3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */,

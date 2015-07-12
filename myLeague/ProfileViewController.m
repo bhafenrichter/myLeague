@@ -47,6 +47,7 @@
 -(void) setupTable {
     self.previousGamesTable.delegate = self;
     self.previousGamesTable.dataSource = self;
+    self.previousGamesTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     
@@ -77,6 +78,8 @@
     return 3;
 }
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"StandingsCell";
     StandingsTableViewCell *cell = [self.previousGamesTable dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -88,47 +91,71 @@
             cell = [nib objectAtIndex:0];
         }
         
-        //gets the name of the player
-        if([[[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userID"] isEqualToString:[self.user objectForKey:@"UserID"]]){
-            for(int i = 0; i < self.members.count; i++){
-                if([[[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"opponentID"] isEqualToString:[[self.members objectAtIndex:i] objectForKey:@"UserID"]]){
-                    cell.nameLabel.text = [NSString stringWithFormat:@"Vs. %@",[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
-                    NSURL *imageURL = [NSURL URLWithString:[[self.members objectAtIndex:i] objectForKey:@"ProfilePictureUrl"]];
-                    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-                    cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
-                    break;
+        dispatch_async(kBgQueue, ^{
+            //gets the name of the player
+            if([[[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userID"] isEqualToString:[self.user objectForKey:@"UserID"]]){
+                for(int i = 0; i < self.members.count; i++){
+                    if([[[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"opponentID"] isEqualToString:[[self.members objectAtIndex:i] objectForKey:@"UserID"]]){
+                        NSURL *imageURL = [NSURL URLWithString:[[self.members objectAtIndex:i] objectForKey:@"ProfilePictureUrl"]];
+                        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            cell.nameLabel.text = [NSString stringWithFormat:@"Vs. %@",[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
+                            
+                            cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
+                            cell.thumbnailImageView.layer.cornerRadius = 20;
+                            cell.thumbnailImageView.layer.masksToBounds = YES;
+                            
+                            //sets the score
+                            cell.winsLabel.text = [[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userScore"];
+                            cell.lossesLabel.text = [[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"opponentScore"];
+                        });
+                        break;
+                    }
+                }
+            }else{
+                for(int i = 0; i < self.members.count; i++){
+                    if([[[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userID"] isEqualToString:[[self.members objectAtIndex:i] objectForKey:@"UserID"]]){
+                         NSURL *imageURL = [NSURL URLWithString:[[self.members objectAtIndex:i] objectForKey:@"ProfilePictureUrl"]];
+                        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            //async update ui
+                            cell.nameLabel.text = [NSString stringWithFormat:@"Vs. %@",[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
+                            
+                            cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
+                            cell.thumbnailImageView.layer.cornerRadius = 20;
+                            cell.thumbnailImageView.layer.masksToBounds = YES;
+                            
+                            //sets the score
+                            cell.winsLabel.text = [[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userScore"];
+                            cell.lossesLabel.text = [[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"opponentScore"];
+                        });
+                        break;
+                    }
                 }
             }
-        }else{
-            for(int i = 0; i < self.members.count; i++){
-                if([[[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userID"] isEqualToString:[[self.members objectAtIndex:i] objectForKey:@"UserID"]]){
-                    cell.nameLabel.text = [NSString stringWithFormat:@"Vs. %@",[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
-                    NSURL *imageURL = [NSURL URLWithString:[[self.members objectAtIndex:i] objectForKey:@"ProfilePictureUrl"]];
-                    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-                    cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
-                    break;
-                }
-            }
-        }
-        
-        //sets the score
-        cell.winsLabel.text = [[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userScore"];
-        cell.lossesLabel.text = [[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"opponentScore"];
+        });
         
         
-        
-        cell.thumbnailImageView.layer.cornerRadius = 20;
-        cell.thumbnailImageView.layer.masksToBounds = YES;
     }
     return cell;
 }
 
+#define kGbQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 -(void) loadElements {
-    NSURL *url = [NSURL URLWithString: [self.user objectForKey:@"ProfilePictureUrl"]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *image = [UIImage imageWithData:data];
     
-    //self.profilePictureImageView.image = [[UIImageView alloc] initWithImage:image];
+    dispatch_async(kGbQueue, ^{
+        NSURL *url = [NSURL URLWithString: [self.user objectForKey:@"ProfilePictureUrl"]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.profilePictureImageView.image = image;
+            self.profilePictureImageView.layer.cornerRadius = 20;
+            self.profilePictureImageView.layer.masksToBounds = YES;
+        });
+    });
+
+    
+    
     
     self.nameTextView.text = [self.user objectForKey:@"ShortName"];
     self.winLossTextView.text = [NSString stringWithFormat:@"%@ - %@",[self.user objectForKey:@"Wins"], [self.user objectForKey:@"Losses"]];
