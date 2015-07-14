@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,28 +16,39 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rDl-hx-OCY">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rDl-hx-OCY">
                         <rect key="frame" x="8" y="4" width="32" height="32"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ko-xv-WjD">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ko-xv-WjD">
                         <rect key="frame" x="204" y="9" width="38" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwK-8y-GPV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwK-8y-GPV">
                         <rect key="frame" x="257" y="10" width="55" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0X-PC-tdU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0X-PC-tdU">
                         <rect key="frame" x="48" y="10" width="157" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="leadingMargin" secondItem="rDl-hx-OCY" secondAttribute="leading" id="6su-d6-700"/>
+                    <constraint firstItem="3Ko-xv-WjD" firstAttribute="leading" secondItem="j0X-PC-tdU" secondAttribute="trailing" constant="-1" id="7RZ-Oy-TIF"/>
+                    <constraint firstItem="3Ko-xv-WjD" firstAttribute="leading" secondItem="j0X-PC-tdU" secondAttribute="trailing" constant="-1" id="POu-Mu-DgR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vwK-8y-GPV" secondAttribute="trailing" id="Tsc-G1-hnT"/>
+                    <constraint firstItem="j0X-PC-tdU" firstAttribute="leading" secondItem="rDl-hx-OCY" secondAttribute="trailing" constant="8" id="Ukf-PS-ZFv"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rDl-hx-OCY" secondAttribute="bottom" constant="-5" id="YrG-dt-KTT"/>
+                    <constraint firstItem="vwK-8y-GPV" firstAttribute="leading" secondItem="3Ko-xv-WjD" secondAttribute="trailing" constant="15" id="fFg-ei-dkC"/>
+                    <constraint firstItem="rDl-hx-OCY" firstAttribute="top" secondItem="Rab-6V-A1j" secondAttribute="topMargin" constant="-4" id="gD7-3Y-yE4"/>
+                    <constraint firstItem="rDl-hx-OCY" firstAttribute="width" secondItem="Rab-6V-A1j" secondAttribute="height" multiplier="32:39" id="hgW-XZ-cQl"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="lossesLabel" destination="vwK-8y-GPV" id="ktN-Op-n7N"/>

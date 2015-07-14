@@ -176,7 +176,7 @@
                 CGRect frame;
                 frame.origin.x = (i) + 10;
                 frame.origin.y = 0;
-                frame.size = CGSizeMake(self.gameScrollView.frame.size.width - 20,     self.gameScrollView.frame.size.height);
+                frame.size = CGSizeMake(self.gameScrollView.frame.size.width - 20, self.gameScrollView.frame.size.height);
                 
                 UIView *cur = [[UIView alloc] initWithFrame:frame];
                 
@@ -205,12 +205,12 @@
                 awayTeam.text = [NSString stringWithFormat:@"%@ %@", [user2 objectForKey:@"firstName"], [user2 objectForKey:@"lastName"]];
                 [cur addSubview:awayTeam];
                 
-                UILabel *homeTeamScore = [[UILabel alloc] initWithFrame:CGRectMake(275, 50, 250, 15)];
+                UILabel *homeTeamScore = [[UILabel alloc] initWithFrame:CGRectMake(self.gameScrollView.frame.size.width - 100, 50, 250, 15)];
                 homeTeamScore.textColor=[UIColor blackColor];
                 homeTeamScore.text = [[objects objectAtIndex:i] objectForKey:@"userScore"];
                 [cur addSubview:homeTeamScore];
                 
-                UILabel *awayTeamScore = [[UILabel alloc] initWithFrame:CGRectMake(275, 100, 250, 15)];
+                UILabel *awayTeamScore = [[UILabel alloc] initWithFrame:CGRectMake(self.gameScrollView.frame.size.width - 100, 100, 250, 15)];
                 awayTeamScore.textColor=[UIColor blackColor];
                 awayTeamScore.text = [[objects objectAtIndex:i] objectForKey:@"opponentScore"];
                 [cur addSubview:awayTeamScore];
