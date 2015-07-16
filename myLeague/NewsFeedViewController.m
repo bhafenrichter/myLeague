@@ -13,6 +13,7 @@
 #import "StandingsTableViewCell.h"
 #import "ProfileViewController.h"
 #import "AdvancedStandingsTableViewController.h"
+#import "HeadlineView.h"
 
 @interface NewsFeedViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *NewsFeedTable;
@@ -71,7 +72,6 @@
     //get selected leagueid
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     self.league = ap.selectedLeague;
-    NSLog(@"%@", self.league.leagueName);
     self.actionBarTitle.title = self.league.leagueName;
     
     //rounds corners
@@ -293,11 +293,11 @@
         cell.backgroundColor = [UIColor yellowColor];
     }
     
+    cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
+    cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
+    cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
+    
     dispatch_async(kBgQueue, ^{
-        cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
-        cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
-        cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
-        
         cell.thumbnailImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
 
         NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
@@ -316,8 +316,6 @@
             }
         }
     });
-    
-    //cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
 
     return cell;
 }

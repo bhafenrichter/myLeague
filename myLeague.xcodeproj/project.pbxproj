@@ -10,6 +10,8 @@
 		3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40045A1B2507D7009E7A2D /* StandingsCell.xib */; };
 		3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */; };
 		3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */; };
+		3D420FE21B573BE3004CECE5 /* HeadlineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D420FE11B573BE3004CECE5 /* HeadlineView.xib */; };
+		3D420FE51B57460E004CECE5 /* HeadlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D420FE41B57460E004CECE5 /* HeadlineView.m */; };
 		3D4E9A911B12929E00A3B986 /* LeaguesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */; };
 		3D525E431B42D52D00C964A4 /* AdvancedStandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */; };
 		3D525E491B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */; };
@@ -66,6 +68,9 @@
 		3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsTableViewCell.m; sourceTree = "<group>"; };
 		3D40045F1B2CA76E009E7A2D /* AddUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserTableViewController.h; sourceTree = "<group>"; };
 		3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserTableViewController.m; sourceTree = "<group>"; };
+		3D420FE11B573BE3004CECE5 /* HeadlineView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadlineView.xib; sourceTree = "<group>"; };
+		3D420FE31B57460E004CECE5 /* HeadlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadlineView.h; sourceTree = "<group>"; };
+		3D420FE41B57460E004CECE5 /* HeadlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadlineView.m; sourceTree = "<group>"; };
 		3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguesListViewController.h; sourceTree = "<group>"; };
 		3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguesListViewController.m; sourceTree = "<group>"; };
 		3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedStandingsCell.xib; sourceTree = "<group>"; };
@@ -202,6 +207,9 @@
 		3D8285FB1B05AE7600E948BE /* myLeague */ = {
 			isa = PBXGroup;
 			children = (
+				3D420FE31B57460E004CECE5 /* HeadlineView.h */,
+				3D420FE41B57460E004CECE5 /* HeadlineView.m */,
+				3D420FE11B573BE3004CECE5 /* HeadlineView.xib */,
 				3D525E471B42D6E700C964A4 /* AdvancedStandingsTableViewCell.h */,
 				3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */,
 				3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */,
@@ -365,6 +373,7 @@
 			files = (
 				3D525E431B42D52D00C964A4 /* AdvancedStandingsCell.xib in Resources */,
 				3D8286081B05AE7600E948BE /* Main.storyboard in Resources */,
+				3D420FE21B573BE3004CECE5 /* HeadlineView.xib in Resources */,
 				3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */,
 				3D82860D1B05AE7600E948BE /* LaunchScreen.xib in Resources */,
 				3D82860A1B05AE7600E948BE /* Images.xcassets in Resources */,
@@ -401,6 +410,7 @@
 				3DB411421B1D3C2400A609B5 /* CreateLeagueViewController.m in Sources */,
 				3D525E4C1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m in Sources */,
 				3D616FCA1B1AA9AF0044E88B /* AddGameViewController.m in Sources */,
+				3D420FE51B57460E004CECE5 /* HeadlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
