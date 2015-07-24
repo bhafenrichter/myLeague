@@ -36,7 +36,7 @@
             ap.user.firstName = [user objectForKey:@"firstName"];
             ap.user.lastName = [user objectForKey:@"lastName"];
             ap.user.profileMotto = [user objectForKey:@"profileMotto"];
-            
+            ap.user.profilePictureUrl = [user objectForKey:@"profilePictureUrl"];
             
             [self performSegueWithIdentifier:@"LoginLeagueListSegue" sender:self];
         } else {

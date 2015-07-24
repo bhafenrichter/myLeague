@@ -18,4 +18,5 @@
 
 //sends data back
 @property(nonatomic,assign)id delegate;
+@property NSMutableArray *members;
 @end

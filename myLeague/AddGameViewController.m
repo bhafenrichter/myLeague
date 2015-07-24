@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *DateTime;
 
 @property League *league;
+@property bool isBlackFont;
 @end
 
 @implementation AddGameViewController
@@ -29,14 +30,57 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 //called every time the UI is loaded
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 -(void) viewDidAppear:(BOOL)animated {
     if(self.opponent != nil){
-        self.opponentNameLabel.text = [NSString stringWithFormat:@"%@. %@", [self.opponent.firstName substringToIndex:1], self.opponent.lastName];
+        //updates picture and text of opponent
+        dispatch_async(kBgQueue, ^{
+            NSURL * imageURL = [NSURL URLWithString:[self.opponent objectForKey:@"ProfilePictureUrl"]];
+            NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.opponentPicture.image = [UIImage imageWithData:imageData];
+                self.opponentPicture.layer.cornerRadius = 20;
+                self.opponentPicture.layer.masksToBounds = YES;
+                
+                self.opponentNameLabel.text = [self.opponent objectForKey:@"ShortName"];
+            });
+            
+        });
+
+    }
+    
+}
+- (IBAction)toggleColor:(id)sender {
+    if(self.headline.textColor == [UIColor whiteColor]){
+        self.headline.textColor = [UIColor blackColor];
+        self.isBlackFont = true;
+    }else{
+        self.headline.textColor = [UIColor whiteColor];
+        self.isBlackFont = false;
     }
     
 }
 
-//called once 
+- (IBAction)uploadHeadlinePhoto:(id)sender {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+// This method is called when an image has been chosen from the library or taken from the camera.
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //You can retrieve the actual UIImage
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    self.headlineImage.image = image;
+    [picker dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+
+
+//called once
+#define abcQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupMap];
@@ -45,19 +89,33 @@
     self.league = ap.selectedLeague;
     self.userNameLabel.text =[NSString stringWithFormat:@"%@. %@", [ap.user.firstName substringToIndex:1], ap.user.lastName];
     if(self.opponent != nil){
-        self.opponentNameLabel.text = [NSString stringWithFormat:@"%@. %@", [self.opponent.firstName substringToIndex:1], self.opponent.lastName];
+        self.opponentNameLabel.text = [self.opponent objectForKey:@"ShortName"];
     }
     
-    NSDate *localDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.dateFormat = @"MM/dd/yy";
-    self.DateDay.text = [dateFormatter stringFromDate: localDate];
+     dispatch_async(abcQueue, ^{
+         NSDate *localDate = [NSDate date];
+         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+         dateFormatter.dateFormat = @"MM/dd/yy";
+         NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+         timeFormatter.dateFormat = @"HH:mm";
+         
+         NSURL * imageURL = [NSURL URLWithString:ap.user.profilePictureUrl];
+         NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+         
+         dispatch_async(dispatch_get_main_queue(), ^{
+             self.profilePicture.image = [UIImage imageWithData:imageData];
+             self.profilePicture.layer.cornerRadius = 20;
+             self.profilePicture.layer.masksToBounds = YES;
+             
+             self.opponentPicture.layer.cornerRadius = 20;
+             self.opponentPicture.layer.masksToBounds = YES;
+             
+             self.DateDay.text = [dateFormatter stringFromDate: localDate];
+             self.DateTime.text = [timeFormatter stringFromDate: localDate];
+         });
+         
+     });
     
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    timeFormatter.dateFormat = @"HH:mm";
-    
-    
-    self.DateTime.text = [timeFormatter stringFromDate: localDate];
     
     // Do any additional setup after loading the view.
 }
@@ -67,8 +125,11 @@
 }
 
 -(void) setupMap{
-    CLLocationCoordinate2D location = [[[self.gameMapView userLocation] location] coordinate];
-    
+    dispatch_async(kBgQueue, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CLLocationCoordinate2D location = [[[self.gameMapView userLocation] location] coordinate];
+        });
+    });
 }
 - (IBAction)submitGame:(id)sender {
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
@@ -76,11 +137,22 @@
     PFObject *game = [PFObject objectWithClassName:@"Game"];
     game[@"LeagueID"] = self.league.leagueId;
     game[@"userID"] = ap.user.userID;
-    game[@"opponentID"] = self.opponent.userID;
+    game[@"opponentID"] = [self.opponent objectForKey:@"UserID"];
     game[@"userScore"] = self.userScore.text;
     game[@"opponentScore"] = self.opponentScore.text;
-    game[@"userComments"] = self.userComments.text;
-    game[@"opponentComments"] = @"";
+    game[@"headlineText"] = self.headline.text;
+    
+    if(self.isBlackFont){
+        game[@"headlineColor"] = @"black";
+    }else{
+        game[@"headlineColor"] = @"white";
+    }
+    
+    
+    NSData *imageData = UIImageJPEGRepresentation(self.headlineImage.image,0.5);
+    PFFile *imageFile = [PFFile fileWithName:@"headline.png" data:imageData];
+    
+    game[@"headlineImage"] = imageFile;
     //[game setValue:@"location" forKey:@""];
     
     [game saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -109,7 +181,7 @@
         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if(succeeded){
                 PFQuery *opponentQuery = [PFQuery queryWithClassName:@"UserLeague"];
-                [opponentQuery whereKey:@"UserID" containsString:self.opponent.userID];
+                [opponentQuery whereKey:@"UserID" containsString:[self.opponent objectForKey:@"UserID"]];
                 [opponentQuery whereKey:@"LeagueID" containsString:self.league.leagueId];
                 PFObject *opponent = [opponentQuery getFirstObject];
                 NSString *opponentLosses = opponent[@"Losses"];
@@ -132,7 +204,7 @@
         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if(succeeded){
                 PFQuery *opponentQuery = [PFQuery queryWithClassName:@"UserLeague"];
-                [opponentQuery whereKey:@"UserID" containsString:self.opponent.userID];
+                [opponentQuery whereKey:@"UserID" containsString:[self.opponent objectForKey:@"UserID"]];
                 [opponentQuery whereKey:@"LeagueID" containsString:self.league.leagueId];
                 PFObject *opponent = [opponentQuery getFirstObject];
                 NSString *opponentWins = opponent[@"Wins"];
@@ -165,21 +237,28 @@
         [self.navigationController pushViewController:acontrollerobject animated:YES];
     }
     
+    [self.view endEditing:true];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"AddGameSearchLeague"])
+    {
+        SearchLeagueTableViewController *sltvc = segue.destinationViewController;
+
+    }
 }
-*/
+
 
 @end

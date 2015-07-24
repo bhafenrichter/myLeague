@@ -98,12 +98,13 @@
                     if([[[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"opponentID"] isEqualToString:[[self.members objectAtIndex:i] objectForKey:@"UserID"]]){
                         NSURL *imageURL = [NSURL URLWithString:[[self.members objectAtIndex:i] objectForKey:@"ProfilePictureUrl"]];
                         NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+                        
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            cell.nameLabel.text = [NSString stringWithFormat:@"Vs. %@",[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
-                            
                             cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
                             cell.thumbnailImageView.layer.cornerRadius = 20;
                             cell.thumbnailImageView.layer.masksToBounds = YES;
+                            
+                            cell.nameLabel.text = [NSString stringWithFormat:@"Vs. %@",[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
                             
                             //sets the score
                             cell.winsLabel.text = [[self.previousGames objectAtIndex:indexPath.row] objectForKey:@"userScore"];

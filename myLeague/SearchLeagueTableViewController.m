@@ -15,7 +15,7 @@
 
 @interface SearchLeagueTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property NSMutableArray *members;
+
 @property League *league;
 @property NSInteger *selectedIndex;
 
@@ -41,42 +41,21 @@
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     self.league = ap.selectedLeague;
     
-    [self getMembersIDs];
-    
-}
-
--(void) getMembersIDs {
     PFQuery *query = [PFQuery queryWithClassName:@"UserLeague"];
     [query whereKey:@"LeagueID" containsString:self.league.leagueId];
+    [query orderByDescending:@"Wins"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        //get all the users information who are in the league
         if(!error){
+            self.members = [[NSArray alloc] initWithArray:objects];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
             
-            for(int i = 0; i < objects.count; i++){
-                //gets the user info
-                NSString *userID = [[objects objectAtIndex:i] objectForKey:@"UserID"];
-                PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-                [query whereKey:@"objectId" containsString:userID];
-                PFObject *user = [query getFirstObject];
-                User *cur = [[User alloc]init];
-                cur.username = [user objectForKey:@"username"];
-                cur.email = [user objectForKey:@"email"];
-                cur.firstName = [user objectForKey:@"firstName"];
-                cur.lastName = [user objectForKey:@"lastName"];
-                cur.profilePictureUrl = [user objectForKey:@"profilePictureUrl"];
-                cur.profileMotto = [user objectForKey:@"profileMotto"];
-                cur.userID = [user objectId];
-                
-                [self.members addObject:cur];
-            }
-            [self.tableView reloadData];
-            
-        }else{
-            NSLog(@"Error running queue");
+            //NSLog(@"%@", self.members);
         }
     }];
+    
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -91,10 +70,20 @@
     return self.members.count;
 }
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchLeagueUser" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"@% @%",[[self.members objectAtIndex:indexPath.row] firstName], [[self.members objectAtIndex:indexPath.row] lastName]];
+    
+    dispatch_async(kBgQueue, ^{
+        NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
+        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.textLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
+            cell.imageView.image = [UIImage imageWithData:imageData];
+        });
+    });
     
     return cell;
 }

@@ -184,6 +184,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3D420FE61B607B0C004CECE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D8286061B05AE7600E948BE /* Main.storyboard */,
+				3D525E471B42D6E700C964A4 /* AdvancedStandingsTableViewCell.h */,
+				3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */,
+				3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */,
+				3D420FE31B57460E004CECE5 /* HeadlineView.h */,
+				3D420FE41B57460E004CECE5 /* HeadlineView.m */,
+				3D420FE11B573BE3004CECE5 /* HeadlineView.xib */,
+				3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */,
+				3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */,
+				3D40045A1B2507D7009E7A2D /* StandingsCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3D420FE71B607B17004CECE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D616FC81B1AA9AF0044E88B /* AddGameViewController.h */,
+				3D616FC91B1AA9AF0044E88B /* AddGameViewController.m */,
+				3D40045F1B2CA76E009E7A2D /* AddUserTableViewController.h */,
+				3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */,
+				3D525E4A1B42DB2500C964A4 /* AdvancedStandingsTableViewController.h */,
+				3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */,
+				3DB411401B1D3C2400A609B5 /* CreateLeagueViewController.h */,
+				3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */,
+				3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */,
+				3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */,
+				3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */,
+				3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */,
+				3D9D9CB91B378D7200517FE8 /* ProfileViewController.h */,
+				3D9D9CBA1B378D7200517FE8 /* ProfileViewController.m */,
+				3DF50F731B32645500C2360D /* RequestsTableViewController.h */,
+				3DF50F741B32645500C2360D /* RequestsTableViewController.m */,
+				3D616FCB1B1BD09D0044E88B /* SearchLeagueTableViewController.h */,
+				3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */,
+				3D8286031B05AE7600E948BE /* ViewController.h */,
+				3D8286041B05AE7600E948BE /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3D420FE81B607B26004CECE5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D8286001B05AE7600E948BE /* AppDelegate.h */,
+				3D8286011B05AE7600E948BE /* AppDelegate.m */,
+				3D616FCE1B1BE2060044E88B /* User.h */,
+				3D616FCF1B1BE2060044E88B /* User.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3D420FE91B607CA2004CECE5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		3D8285F01B05AE7600E948BE = {
 			isa = PBXGroup;
 			children = (
@@ -207,45 +269,15 @@
 		3D8285FB1B05AE7600E948BE /* myLeague */ = {
 			isa = PBXGroup;
 			children = (
-				3D420FE31B57460E004CECE5 /* HeadlineView.h */,
-				3D420FE41B57460E004CECE5 /* HeadlineView.m */,
-				3D420FE11B573BE3004CECE5 /* HeadlineView.xib */,
-				3D525E471B42D6E700C964A4 /* AdvancedStandingsTableViewCell.h */,
-				3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */,
-				3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */,
-				3D525E4A1B42DB2500C964A4 /* AdvancedStandingsTableViewController.h */,
-				3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */,
-				3D8286001B05AE7600E948BE /* AppDelegate.h */,
-				3D8286011B05AE7600E948BE /* AppDelegate.m */,
-				3D8286031B05AE7600E948BE /* ViewController.h */,
-				3D8286041B05AE7600E948BE /* ViewController.m */,
-				3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */,
-				3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */,
-				3D8286061B05AE7600E948BE /* Main.storyboard */,
-				3D9D9CB91B378D7200517FE8 /* ProfileViewController.h */,
-				3D9D9CBA1B378D7200517FE8 /* ProfileViewController.m */,
-				3DF50F731B32645500C2360D /* RequestsTableViewController.h */,
-				3DF50F741B32645500C2360D /* RequestsTableViewController.m */,
-				3D40045F1B2CA76E009E7A2D /* AddUserTableViewController.h */,
-				3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */,
-				3DB411401B1D3C2400A609B5 /* CreateLeagueViewController.h */,
-				3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */,
-				3D616FCB1B1BD09D0044E88B /* SearchLeagueTableViewController.h */,
-				3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */,
-				3D616FCE1B1BE2060044E88B /* User.h */,
-				3D616FCF1B1BE2060044E88B /* User.m */,
-				3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */,
-				3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */,
-				3D40045A1B2507D7009E7A2D /* StandingsCell.xib */,
-				3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */,
-				3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */,
+				3D420FE91B607CA2004CECE5 /* Services */,
+				3D420FE81B607B26004CECE5 /* Models */,
+				3D420FE71B607B17004CECE5 /* Controllers */,
+				3D420FE61B607B0C004CECE5 /* Views */,
 				3D8286091B05AE7600E948BE /* Images.xcassets */,
 				3D82860B1B05AE7600E948BE /* LaunchScreen.xib */,
 				3D8285FC1B05AE7600E948BE /* Supporting Files */,
 				3D616FC31B1A7D760044E88B /* League.h */,
 				3D616FC41B1A7D760044E88B /* League.m */,
-				3D616FC81B1AA9AF0044E88B /* AddGameViewController.h */,
-				3D616FC91B1AA9AF0044E88B /* AddGameViewController.m */,
 			);
 			path = myLeague;
 			sourceTree = "<group>";
@@ -492,7 +524,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos9.0;
 			};
 			name = Debug;
 		};
@@ -528,7 +560,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

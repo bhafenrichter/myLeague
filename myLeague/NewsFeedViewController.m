@@ -18,14 +18,13 @@
 @interface NewsFeedViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *NewsFeedTable;
 @property (weak, nonatomic) IBOutlet UINavigationItem *actionBarTitle;
-@property (weak, nonatomic) IBOutlet UIScrollView *gameScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *gamePageControl;
 @property (weak, nonatomic) IBOutlet UIView *gameView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *gameLoadingWheel;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 @property (weak, nonatomic) IBOutlet UITableView *standingsTable;
+@property (weak, nonatomic) IBOutlet UIImageView *headlineImage;
+@property (weak, nonatomic) IBOutlet UILabel *headlineText;
 
-@property NSMutableArray *recentGamesScoreboard;    //array of uiviews
+@property NSArray *recentGames;    //array of uiviews
 @property int selectedProfileIndex;
 @end
 
@@ -43,6 +42,7 @@
     [query whereKey:@"LeagueID" containsString:self.league.leagueId];
     [query countObjectsInBackgroundWithBlock:^(int count, NSError *error){
         if(!error){
+            //league page needs to be updated
             if(count != self.league.gameCount){
                 //refresh league game count
                 PFQuery *leagueQuery = [PFQuery queryWithClassName:@"League"];
@@ -54,9 +54,11 @@
                         //refresh page
                         [self setupStandingsTable];
                         [self setupNavBar];
-                        [self createScoreboard];
+                        //[self createScoreboard: true];
                     }
                 }];
+            }else{
+                [self createScoreboard:false];
             }
         }
     }];
@@ -65,6 +67,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self initialSetup];
+    [self setupNavBar];
+    [self createScoreboard: true];
+}
+
+-(void) initialSetup {
     self.standingsTable.dataSource = self;
     self.standingsTable.delegate = self;
     
@@ -80,10 +88,6 @@
     
     self.standingsTable.layer.cornerRadius = 10;
     self.standingsTable.layer.masksToBounds = YES;
-    
-    //[self setupStandingsTable];
-    [self setupNavBar];
-    [self createScoreboard];
 }
 
 -(void) setupStandingsTable{
@@ -98,8 +102,6 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.standingsTable reloadData];
             });
-            
-            //NSLog(@"%@", self.members);
         }
     }];
 }
@@ -108,133 +110,65 @@
     [self performSegueWithIdentifier:@"LeagueAddGame" sender:self];
 }
 
--(void) setupGameWidget {
-    //clears screen
-    for (UIView *subview in self.gameScrollView.subviews) {
-        [subview removeFromSuperview];
-    }
-    
-    self.gameScrollView.backgroundColor = [UIColor clearColor];
-    self.gameScrollView.indicatorStyle = UIScrollViewIndicatorStyleBlack; //Scroll bar style
-    self.gameScrollView.showsHorizontalScrollIndicator = NO;
-    //dont forget to set delegate in .h file
-    [self.gameScrollView setDelegate:self];
-    
-    UIView *ViewOne = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.gameScrollView.frame.size.width, self.gameScrollView.frame.size.height)];
-    
-    if(self.recentGamesScoreboard.count > 0){
-        [ViewOne addSubview: [self.recentGamesScoreboard objectAtIndex:0]];
-    }
-    
-    
-    UIView *ViewTwo = [[UIView alloc] initWithFrame:CGRectMake(self.gameScrollView.frame.size.width, 0, self.gameScrollView.frame.size.width, self.gameScrollView.frame.size.height)];
-    
-    if(self.recentGamesScoreboard.count > 1){
-        [ViewTwo addSubview: [self.recentGamesScoreboard objectAtIndex:1]];
-    }
-    
-    UIView *ViewThree = [[UIView alloc] initWithFrame:CGRectMake(self.gameScrollView.frame.size.width * 2, 0, self.gameScrollView.frame.size.width, self.gameScrollView.frame.size.height)];
-    
-    if(self.recentGamesScoreboard.count > 2){
-        [ViewThree addSubview: [self.recentGamesScoreboard objectAtIndex:2]];
-    }
-    
-    //add all views to array
-    NSMutableArray *viewsArray = [[NSMutableArray alloc] initWithObjects:ViewOne, ViewTwo, ViewThree, nil];
-    
-    self.gamePageControl.numberOfPages = viewsArray.count;
-    self.gamePageControl.currentPage = 0;
-    self.gamePageControl.backgroundColor = [UIColor clearColor];
-    [self.gamePageControl setTintColor:[UIColor blackColor]];
-    
-    for(int i = 0; i < viewsArray.count; i++)
-    {
-        CGRect frame;
-        frame.origin.x = (self.gameScrollView.frame.size.width *i) + 10;
-        frame.origin.y = 0;
-        frame.size = CGSizeMake(self.gameScrollView.frame.size.width - 20,     self.gameScrollView.frame.size.height);
-        
-        UIView *view = [[UIView alloc] initWithFrame:frame];
-        view = [viewsArray objectAtIndex:i];
-        [self.gameScrollView addSubview:view];
-        
-        
-        self.gameScrollView.contentSize = CGSizeMake(self.gameScrollView.frame.size.width*viewsArray.count, self.gameScrollView.frame.size.height);
-    }
-    self.gameLoadingWheel.hidden = true;
-}
-
--(void) createScoreboard {
-    self.recentGamesScoreboard = [[NSMutableArray alloc]init];
-    PFQuery *query = [PFQuery queryWithClassName:@"Game"];
-    [query whereKey:@"LeagueID" containsString:self.league.leagueId];
-    [query orderByDescending:@"createdAt"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        if(!error){
-            int multipler = self.gameScrollView.frame.size.width;
-            for(int i = 0; i < 3; i++){
-                CGRect frame;
-                frame.origin.x = (i) + 10;
-                frame.origin.y = 0;
-                frame.size = CGSizeMake(self.gameScrollView.frame.size.width - 20, self.gameScrollView.frame.size.height);
-                
-                UIView *cur = [[UIView alloc] initWithFrame:frame];
-                
-                UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 250, 15)];
-                header.textColor = [UIColor blackColor];
-                NSDate *date = [[objects objectAtIndex:i] createdAt];
-                header.text = [NSDateFormatter localizedStringFromDate:date
-                                                             dateStyle:NSDateFormatterShortStyle
-                                                             timeStyle:NSDateFormatterShortStyle];
-                [cur addSubview:header];
-                
-                UILabel *homeTeam = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 250, 15)];
-                homeTeam.textColor=[UIColor blackColor];
-                PFQuery *userQuery = [PFQuery queryWithClassName:@"_User"];
-                PFObject *user1 = [userQuery getObjectWithId:[[objects objectAtIndex:i] objectForKey:@"userID"]];
-                homeTeam.text = [NSString stringWithFormat:@"%@ %@", [user1 objectForKey:@"firstName"], [user1 objectForKey:@"lastName"]];
-                [cur addSubview:homeTeam];
-                
-                //UIImageView *homePic = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 40, 25, 25)];
-                //homePic.image = [UIImage imageNamed:@"blank-user"];
-                //[cur addSubview:homePic];
-                
-                UILabel *awayTeam = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 250, 15)];
-                awayTeam.textColor=[UIColor blackColor];
-                PFObject *user2 = [userQuery getObjectWithId:[[objects objectAtIndex:i] objectForKey:@"opponentID"]];
-                awayTeam.text = [NSString stringWithFormat:@"%@ %@", [user2 objectForKey:@"firstName"], [user2 objectForKey:@"lastName"]];
-                [cur addSubview:awayTeam];
-                
-                UILabel *homeTeamScore = [[UILabel alloc] initWithFrame:CGRectMake(self.gameScrollView.frame.size.width - 100, 50, 250, 15)];
-                homeTeamScore.textColor=[UIColor blackColor];
-                homeTeamScore.text = [[objects objectAtIndex:i] objectForKey:@"userScore"];
-                [cur addSubview:homeTeamScore];
-                
-                UILabel *awayTeamScore = [[UILabel alloc] initWithFrame:CGRectMake(self.gameScrollView.frame.size.width - 100, 100, 250, 15)];
-                awayTeamScore.textColor=[UIColor blackColor];
-                awayTeamScore.text = [[objects objectAtIndex:i] objectForKey:@"opponentScore"];
-                [cur addSubview:awayTeamScore];
-                
-                
-                [self.recentGamesScoreboard addObject:cur];
+-(void) createScoreboard: (bool) isQuery {
+    //get games from database
+    if(isQuery){
+        PFQuery *query = [PFQuery queryWithClassName:@"Game"];
+        [query whereKey:@"LeagueID" containsString:self.league.leagueId];
+        [query orderByDescending:@"createdAt"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if(!error){
+                self.recentGames = [[NSArray alloc] initWithArray:objects];
+                [self beginTicker: 0];
             }
-            //gather data and then populate uiviews
-            [self setupGameWidget];
-        }
             else{
                 NSLog(@"%@", error);
             }
-        
-    }];
+            
+        }];
+    }else{
+        [self beginTicker: 0];
+    }
+    
 }
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    CGFloat pageWidth = scrollView.frame.size.width;
+//#define batQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+-(void) beginTicker: (int) index{
+    if(index >= self.recentGames.count){
+        index = 0;
+    }
     
-    //int page = floor((scrollView.contentOffset.x - pageWidth*0.3) / pageWidth) + 1);
+    if([[[self.recentGames objectAtIndex:index] objectForKey:@"headlineColor"] isEqualToString:@"white"]){
+        self.headlineText.textColor = [UIColor whiteColor];
+    }else{
+        self.headlineText.textColor = [UIColor blackColor];
+    }
     
-    self.gamePageControl.currentPage = (int)scrollView.contentOffset.x / (int)pageWidth;
+    self.headlineText.text = [[self.recentGames objectAtIndex:index] objectForKey:@"headlineText"];
+    [self.headlineText setAlpha:0.0f];
+    
+    PFFile *headlineImageFile = [[self.recentGames objectAtIndex:index] objectForKey:@"headlineImage"];
+    [headlineImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+             self.headlineImage.image = [UIImage imageWithData:data];
+        }else{
+            self.headlineImage.image = [UIImage imageNamed:@"blank-user"];
+        }
+    }];
+    //fade in
+    [UIView animateWithDuration:3.0f animations:^{
+        [self.headlineText setAlpha:1.0f];
+        [self.headlineImage setAlpha:1.0f];
+    } completion:^(BOOL finished) {
+        //fade out
+        [UIView animateWithDuration:3.0f animations:^{
+            [self.headlineText setAlpha:0.0f];
+            [self.headlineImage setAlpha:0.0f];
+        } completion:^(BOOL finished){
+            if(finished)
+                [self beginTicker: index + 1];
+        }];
+    }];
 }
 
 -(void) setupNavBar {

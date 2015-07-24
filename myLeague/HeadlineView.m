@@ -11,12 +11,19 @@
 @implementation HeadlineView
 @synthesize headline = _headline;
 @synthesize headlineImage = _headlineImage;
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
+- (void)awakeFromNib {
+    // Initialization code
+}
+
++ (id)customView
+{
+    HeadlineView *headlineView = [[[NSBundle mainBundle] loadNibNamed:@"HeadlineView" owner:nil options:nil] lastObject];
+    
+    // make sure customView is not nil or the wrong class!
+    if ([headlineView isKindOfClass:[HeadlineView class]])
+        return headlineView;
+    else
+        return nil;
+}
 @end

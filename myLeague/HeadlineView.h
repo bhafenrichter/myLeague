@@ -11,4 +11,6 @@
 @interface HeadlineView : UIView
 @property (nonatomic, weak) IBOutlet UILabel *headline;
 @property (nonatomic, weak) IBOutlet UIImageView *headlineImage;
+
++ (id)customView;
 @end

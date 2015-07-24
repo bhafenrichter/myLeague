@@ -21,13 +21,22 @@
 @implementation LeaguesListViewController
 
 -(void) viewDidAppear:(BOOL)animated {
+    AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+    NSString *userID = ap.user.userID;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"UserLeague"];
+    [query whereKey:@"UserID" containsString:userID];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error){
+        if(!error){
+            
+        }
+    }];
+    
     [self getLeagues];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //drawer setup
-    
     
     //table setup
     self.leagueList.delegate = self;
@@ -78,10 +87,13 @@
         PFQuery *query = [PFQuery queryWithClassName:@"League"];
         PFObject *cur = [query getObjectWithId:leagueID];
         
-        NSLog(@"League Object: %@", cur);
+        //NSLog(@"League Object: %@", cur);
         
-        cell.textLabel.text = [cur objectForKey:@"LeagueName"];
-        cell.detailTextLabel.text = [cur objectForKey:@"LeagueType"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.textLabel.text = [cur objectForKey:@"LeagueName"];
+            cell.detailTextLabel.text = [cur objectForKey:@"LeagueType"];
+        });
+        
     });
     return cell;
 }
