@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D068D541B6553C600ADD804 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D068D531B6553C600ADD804 /* GameViewController.m */; };
+		3D068D571B65557900ADD804 /* GameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D068D561B65557900ADD804 /* GameService.m */; };
+		3D068D5A1B6571C100ADD804 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D068D591B6571C100ADD804 /* UserService.m */; };
 		3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40045A1B2507D7009E7A2D /* StandingsCell.xib */; };
 		3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */; };
 		3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */; };
@@ -63,6 +66,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D068D521B6553C600ADD804 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		3D068D531B6553C600ADD804 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		3D068D551B65557900ADD804 /* GameService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameService.h; sourceTree = "<group>"; };
+		3D068D561B65557900ADD804 /* GameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameService.m; sourceTree = "<group>"; };
+		3D068D581B6571C100ADD804 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
+		3D068D591B6571C100ADD804 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		3D40045A1B2507D7009E7A2D /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
 		3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandingsTableViewCell.h; sourceTree = "<group>"; };
 		3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsTableViewCell.m; sourceTree = "<group>"; };
@@ -212,6 +221,8 @@
 				3D525E4B1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m */,
 				3DB411401B1D3C2400A609B5 /* CreateLeagueViewController.h */,
 				3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */,
+				3D068D521B6553C600ADD804 /* GameViewController.h */,
+				3D068D531B6553C600ADD804 /* GameViewController.m */,
 				3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */,
 				3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */,
 				3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */,
@@ -242,6 +253,10 @@
 		3D420FE91B607CA2004CECE5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D068D551B65557900ADD804 /* GameService.h */,
+				3D068D561B65557900ADD804 /* GameService.m */,
+				3D068D581B6571C100ADD804 /* UserService.h */,
+				3D068D591B6571C100ADD804 /* UserService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -430,9 +445,11 @@
 				3D616FD01B1BE2060044E88B /* User.m in Sources */,
 				3D9D9CBB1B378D7200517FE8 /* ProfileViewController.m in Sources */,
 				3D616FCD1B1BD09D0044E88B /* SearchLeagueTableViewController.m in Sources */,
+				3D068D541B6553C600ADD804 /* GameViewController.m in Sources */,
 				3D8286051B05AE7600E948BE /* ViewController.m in Sources */,
 				3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */,
 				3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */,
+				3D068D5A1B6571C100ADD804 /* UserService.m in Sources */,
 				3D616FC51B1A7D760044E88B /* League.m in Sources */,
 				3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */,
 				3D5DC6621B16A65500C72049 /* NewsFeedViewController.m in Sources */,
@@ -442,6 +459,7 @@
 				3DB411421B1D3C2400A609B5 /* CreateLeagueViewController.m in Sources */,
 				3D525E4C1B42DB2500C964A4 /* AdvancedStandingsTableViewController.m in Sources */,
 				3D616FCA1B1AA9AF0044E88B /* AddGameViewController.m in Sources */,
+				3D068D571B65557900ADD804 /* GameService.m in Sources */,
 				3D420FE51B57460E004CECE5 /* HeadlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
