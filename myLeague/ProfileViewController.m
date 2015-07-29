@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "StandingsTableViewCell.h"
+#import "GameViewController.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureImageView;
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *previousGamesTable;
 @property NSArray *previousGames;
 @property NSArray *members;
+@property NSInteger *selectedGameIndex;
 @end
 
 @implementation ProfileViewController
@@ -67,6 +69,12 @@
         }
     }];
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.selectedGameIndex = indexPath.row;
+    [self performSegueWithIdentifier:@"ProfileGameSegue" sender:self];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -164,19 +172,22 @@
     self.pointsScoredTextView.text = [self.user objectForKey:@"PointsScored"];
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if([[segue identifier] isEqualToString:@"ProfileGameSegue"]){
+        // Make sure your segue name in storyboard is the same as this line
+        GameViewController *controller = [segue destinationViewController];
+        controller.game = [self.previousGames objectAtIndex:self.selectedGameIndex];
+    }
 }
-*/
 
 @end

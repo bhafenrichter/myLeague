@@ -10,9 +10,10 @@
 #import <Parse/Parse.h>
 
 @implementation UserService
-+(PFObject*) GetUserBriefWithId:(NSString *)userId{
++(PFObject*) GetUserBriefWithId:(NSString *)userId: (NSString *) leagueId{
     PFQuery *query = [PFQuery queryWithClassName:@"UserLeague"];
-    [query whereKey:@"userId" equalTo:userId];
+    [query whereKey:@"UserID" containsString:userId];
+    [query whereKey:@"LeagueID" containsString:leagueId];
     return [query getFirstObject];
 }
 

@@ -10,6 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface UserService : NSObject
-+(PFObject*) GetUserWithId: (NSString*) userId;
++(PFObject*) GetUserBriefWithId: (NSString*) userId: (NSString*) leagueId;
 +(UIImage*) GetUserPicture: (NSString*) profilePictureUrl;
 @end

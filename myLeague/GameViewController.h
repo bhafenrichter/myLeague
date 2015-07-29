@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property PFObject *game;
 @end
