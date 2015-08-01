@@ -131,6 +131,7 @@
         });
     });
 }
+#define batQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 - (IBAction)submitGame:(id)sender {
     //user can't be equal and score can't IMPLEMENT TIES
     if(![self.userNameLabel.text  isEqualToString:self.opponentNameLabel.text] &&
@@ -139,38 +140,40 @@
        ![self.userScore.text  isEqual: @""] &&
        ![self.opponentNameLabel.text  isEqual: @""] &&
        ![self.opponentScore.text  isEqual: @""]){
-        AppDelegate *ap = [[UIApplication sharedApplication] delegate];
         
-        PFObject *game = [PFObject objectWithClassName:@"Game"];
-        game[@"LeagueID"] = self.league.leagueId;
-        game[@"userID"] = ap.user.userID;
-        game[@"opponentID"] = [self.opponent objectForKey:@"UserID"];
-        game[@"userScore"] = self.userScore.text;
-        game[@"opponentScore"] = self.opponentScore.text;
-        game[@"headlineText"] = self.headline.text;
-        
-        if(self.isBlackFont){
-            game[@"headlineColor"] = @"black";
-        }else{
-            game[@"headlineColor"] = @"white";
-        }
-        
-        
-        NSData *imageData = UIImageJPEGRepresentation(self.headlineImage.image,0.5);
-        PFFile *imageFile = [PFFile fileWithName:@"headline.png" data:imageData];
-        
-        game[@"headlineImage"] = imageFile;
-        //[game setValue:@"location" forKey:@""];
-        
-        [game saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                NSLog(@"Saved.");
-                [self updateUsers];
-            } else {
-                NSLog(@"%@", error);
+        dispatch_async(batQueue, ^{
+            AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+            
+            PFObject *game = [PFObject objectWithClassName:@"Game"];
+            game[@"LeagueID"] = self.league.leagueId;
+            game[@"userID"] = ap.user.userID;
+            game[@"opponentID"] = [self.opponent objectForKey:@"UserID"];
+            game[@"userScore"] = self.userScore.text;
+            game[@"opponentScore"] = self.opponentScore.text;
+            game[@"headlineText"] = self.headline.text;
+            
+            if(self.isBlackFont){
+                game[@"headlineColor"] = @"black";
+            }else{
+                game[@"headlineColor"] = @"white";
             }
-        }];
-
+            
+            
+            NSData *imageData = UIImageJPEGRepresentation(self.headlineImage.image,0.5);
+            PFFile *imageFile = [PFFile fileWithName:@"headline.png" data:imageData];
+            
+            game[@"headlineImage"] = imageFile;
+            //[game setValue:@"location" forKey:@""];
+            
+            [game saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"Saved.");
+                    [self updateUsers];
+                } else {
+                    NSLog(@"%@", error);
+                }
+            }];
+        });
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Submission"
                                                         message:@"There was an error while submitting your request, please try again."

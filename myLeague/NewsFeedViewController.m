@@ -112,7 +112,7 @@
 
 -(void) createScoreboard: (bool) isQuery {
     //get games from database
-    if(isQuery){
+    //if(isQuery){
         PFQuery *query = [PFQuery queryWithClassName:@"Game"];
         [query whereKey:@"LeagueID" containsString:self.league.leagueId];
         [query orderByDescending:@"createdAt"];
@@ -126,9 +126,9 @@
             }
             
         }];
-    }else{
-        [self beginTicker: 0];
-    }
+    //}else{
+        //[self beginTicker: 0];
+    //}
     
 }
 
@@ -209,7 +209,6 @@
 }
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"StandingsCell";
