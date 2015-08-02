@@ -197,6 +197,11 @@
         int wins = userWins.intValue;
         wins++;
         user[@"Wins"] = [NSString stringWithFormat:@"%d",wins];
+        int pointsScored = [[user objectForKey:@"PointsScore"] intValue] + [self.userScore.text intValue];
+        user[@"PointsScored"] = [NSString stringWithFormat:@"%d",pointsScored];
+        int pointsAllowed = [[user objectForKey:@"PointsAllowed"] intValue] + [self.opponentScore.text intValue];
+        user[@"PointsAllowed"] = [NSString stringWithFormat:@"%d",pointsAllowed];
+
         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if(succeeded){
                 PFQuery *opponentQuery = [PFQuery queryWithClassName:@"UserLeague"];
@@ -207,6 +212,10 @@
                 int losses = opponentLosses.intValue;
                 losses++;
                 opponent[@"Losses"] = [NSString stringWithFormat:@"%d",losses];
+                int pointsScored = [[opponent objectForKey:@"PointsScored"] intValue] + [self.opponentScore.text intValue];
+                opponent[@"PointsScored"] = [NSString stringWithFormat:@"%d",pointsScored];
+                int pointsAllowed = [[opponent objectForKey:@"PointsAllowed"] intValue] + [self.userScore.text intValue];
+                opponent[@"PointsAllowed"] = [NSString stringWithFormat:@"%d",pointsAllowed];
                 [opponent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                     if(!error){
                         [self.navigationController popViewControllerAnimated:YES];
@@ -220,16 +229,27 @@
         int wins = userLosses.intValue;
         wins++;
         user[@"Losses"] = [NSString stringWithFormat:@"%d",wins];
+        int pointsScored = [[user objectForKey:@"PointsScore"] intValue] + [self.userScore.text intValue];
+        user[@"PointsScored"] = [NSString stringWithFormat:@"%d",pointsScored];
+        int pointsAllowed = [[user objectForKey:@"PointsAllowed"] intValue] + [self.opponentScore.text intValue];
+        user[@"PointsAllowed"] = [NSString stringWithFormat:@"%d",pointsAllowed];
         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if(succeeded){
+                //saves opponent
                 PFQuery *opponentQuery = [PFQuery queryWithClassName:@"UserLeague"];
                 [opponentQuery whereKey:@"UserID" containsString:[self.opponent objectForKey:@"UserID"]];
                 [opponentQuery whereKey:@"LeagueID" containsString:self.league.leagueId];
                 PFObject *opponent = [opponentQuery getFirstObject];
                 NSString *opponentWins = opponent[@"Wins"];
                 int wins = opponentWins.intValue;
+                int losses = [[opponent objectForKey:@"Losses"] intValue];
                 wins++;
                 opponent[@"Wins"] = [NSString stringWithFormat:@"%d",wins];
+                int pointsScored = [[opponent objectForKey:@"PointsScored"] intValue] + [self.opponentScore.text intValue];
+                opponent[@"PointsScored"] = [NSString stringWithFormat:@"%d",pointsScored];
+                int pointsAllowed = [[opponent objectForKey:@"PointsAllowed"] intValue] + [self.userScore.text intValue];
+                opponent[@"PointsAllowed"] = [NSString stringWithFormat:@"%d",pointsAllowed];
+                
                 [opponent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                     if(!error){
                         [self.navigationController popViewControllerAnimated:YES];

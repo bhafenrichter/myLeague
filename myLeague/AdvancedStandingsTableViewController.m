@@ -9,9 +9,10 @@
 #import "AdvancedStandingsTableViewController.h"
 #import "AdvancedStandingsTableViewCell.h"
 #import "AppDelegate.h"
+#import "ProfileViewController.h"
 
 @interface AdvancedStandingsTableViewController ()
-
+@property int selectedIndex;
 @end
 
 @implementation AdvancedStandingsTableViewController
@@ -33,7 +34,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.members.count;
+    return self.members.count + 1;
 }
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -49,74 +50,53 @@
     
     //highlight user if thats the one currently logged in
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
-    if([[[self.members objectAtIndex:indexPath.row] objectForKey:@"UserID"] isEqualToString:ap.user.userID]){
-        cell.backgroundColor = [UIColor yellowColor];
-    }
     
-    dispatch_async(kBgQueue, ^{
-        NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
-        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
-            cell.thumbnailImageView.layer.cornerRadius = 20;
-            cell.thumbnailImageView.layer.masksToBounds = YES;
+    if(indexPath.row == 0){
+        cell.nameLabel.text = @"Name";
+        cell.winsLabel.text = @"W";
+        cell.lossesLabel.text = @"L";
+        cell.PPGLabel.text = @"PS";
+        cell.PALabel.text = @"PA";
+    }else{
+        dispatch_async(kBgQueue, ^{
+            NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"ProfilePictureUrl"]];
+            NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
+                cell.thumbnailImageView.layer.cornerRadius = 20;
+                cell.thumbnailImageView.layer.masksToBounds = YES;
+            });
+            
         });
         
-    });
-    
-    cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
-    cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
-    cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
-    cell.PPGLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"PointsScored"];
-    cell.PALabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"PointsAllowed"];
-    
-    
+        if([[[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"UserID"] isEqualToString:ap.user.userID]){
+            cell.backgroundColor = [UIColor yellowColor];
+        }
+        
+        cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"ShortName"];
+        cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"Wins"];
+        cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"Losses"];
+        cell.PPGLabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"PointsScored"];
+        cell.PALabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"PointsAllowed"];
+    }
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row != 0){
+        self.selectedIndex = indexPath.row - 1;
+        [self performSegueWithIdentifier:@"StandingsProfileSegue" sender:self];
+    }
+    
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"StandingsProfileSegue"])
+    {
+        ProfileViewController *pvc = [segue destinationViewController];
+        pvc.user = [self.members objectAtIndex:self.selectedIndex - 1];
+    }
 }
-*/
 
 @end

@@ -182,7 +182,6 @@
 
 -(NSString*) generateHeadlineScore: (PFObject*) game{
     NSMutableString *headline = [[NSMutableString alloc]init];
-    [headline appendString:@"(F) "];
     for(int i = 0; i < self.members.count; i++){
         if([[[self.members objectAtIndex:i] objectForKey:@"UserID"] isEqualToString:[game objectForKey:@"userID"]]){
             [headline appendString:[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
@@ -217,12 +216,15 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.members count];
+    return [self.members count] + 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedProfileIndex = indexPath.row;
-    [self performSegueWithIdentifier:@"NewsFeedProfileSegue" sender:self];
+    if(indexPath.row != 0){
+        self.selectedProfileIndex = indexPath.row - 1;
+        [self performSegueWithIdentifier:@"NewsFeedProfileSegue" sender:self];
+    }
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -254,36 +256,43 @@
         cell = [nib objectAtIndex:0];
     }
     
-    //highlight user if thats the one currently logged in
-    AppDelegate *ap = [[UIApplication sharedApplication] delegate];
-    if([[[self.members objectAtIndex:indexPath.row] objectForKey:@"UserID"] isEqualToString:ap.user.userID]){
-        cell.backgroundColor = [UIColor yellowColor];
-    }
-    
-    cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"ShortName"];
-    cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Wins"];
-    cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row] objectForKey:@"Losses"];
-    
-    dispatch_async(kBgQueue, ^{
-        cell.thumbnailImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
-
-        NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row] objectForKey:@"ProfilePictureUrl"]];
-        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-        if (imageData) {
-            UIImage *image = [UIImage imageWithData:imageData];
-            if (image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    StandingsTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                    if (updateCell){
-                        updateCell.thumbnailImageView.image = image;
-                        cell.thumbnailImageView.layer.cornerRadius = 20;
-                        cell.thumbnailImageView.layer.masksToBounds = YES;
-                    }
-                });
-            }
+    //draws the first row
+    if(indexPath.row == 0){
+        cell.nameLabel.text = @"Name";
+        cell.winsLabel.text = @"W";
+        cell.lossesLabel.text = @"L";
+    }else{
+        //highlight user if thats the one currently logged in
+        AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+        if([[[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"UserID"] isEqualToString:ap.user.userID]){
+            cell.backgroundColor = [UIColor yellowColor];
         }
-    });
-
+        
+        
+        cell.nameLabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"ShortName"];
+        cell.winsLabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"Wins"];
+        cell.lossesLabel.text = [[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"Losses"];
+        
+        dispatch_async(kBgQueue, ^{
+            cell.thumbnailImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
+            
+            NSURL * imageURL = [NSURL URLWithString:[[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"ProfilePictureUrl"]];
+            NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+            if (imageData) {
+                UIImage *image = [UIImage imageWithData:imageData];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        StandingsTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                        if (updateCell){
+                            updateCell.thumbnailImageView.image = image;
+                            cell.thumbnailImageView.layer.cornerRadius = 20;
+                            cell.thumbnailImageView.layer.masksToBounds = YES;
+                        }
+                    });
+                }
+            }
+        });
+    }
     return cell;
 }
 

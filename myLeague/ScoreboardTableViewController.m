@@ -87,6 +87,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedIndex = indexPath.row;
     [self performSegueWithIdentifier:@"ScoreboardGameSegue" sender:self];
+    
 }
 
 /*

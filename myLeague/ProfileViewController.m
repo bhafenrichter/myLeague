@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "StandingsTableViewCell.h"
 #import "GameViewController.h"
+#import "ScoreboardTableViewController.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureImageView;
@@ -69,6 +70,9 @@
         }
     }];
     
+}
+- (IBAction)segueToAllGames:(id)sender {
+    [self performSegueWithIdentifier:@"ProfileScoreboardSegue" sender:self];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -164,12 +168,12 @@
     });
 
     
-    
+    float totalGamesPlayed = [[self.user objectForKey:@"Wins"] intValue] + [[self.user objectForKey:@"Losses"] intValue];
     
     self.nameTextView.text = [self.user objectForKey:@"ShortName"];
     self.winLossTextView.text = [NSString stringWithFormat:@"%@ - %@",[self.user objectForKey:@"Wins"], [self.user objectForKey:@"Losses"]];
-    self.pointsAllowedTextView.text = [self.user objectForKey:@"PointsAllowed"];
-    self.pointsScoredTextView.text = [self.user objectForKey:@"PointsScored"];
+    self.pointsAllowedTextView.text = [NSString stringWithFormat:@"%.1f",[[self.user objectForKey:@"PointsAllowed"] floatValue] / totalGamesPlayed];
+    self.pointsScoredTextView.text = [NSString stringWithFormat:@"%.1f",[[self.user objectForKey:@"PointsScored"] floatValue] / totalGamesPlayed];
 }
 
 
@@ -187,6 +191,10 @@
         // Make sure your segue name in storyboard is the same as this line
         GameViewController *controller = [segue destinationViewController];
         controller.game = [self.previousGames objectAtIndex:self.selectedGameIndex];
+    }else if([[segue identifier] isEqualToString:@"ProfileScoreboardSegue"]){
+        ScoreboardTableViewController *sbtvc = [segue destinationViewController];
+        sbtvc.games = self.previousGames;
+        sbtvc.members = self.members;
     }
 }
 
