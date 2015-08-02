@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D7548D9C-19C2-48BC-BF01-DBCF2150A6D6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6DDEE31F8FDD3F759340576A24B2F6F7026771D9</key>
+		<string>https://github.com/bhafenrichter/myLeague.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>myLeague.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6DDEE31F8FDD3F759340576A24B2F6F7026771D9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bhafenrichter/myLeague.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6DDEE31F8FDD3F759340576A24B2F6F7026771D9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6DDEE31F8FDD3F759340576A24B2F6F7026771D9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>myLeague</string>
+		</dict>
+	</array>
+</dict>
+</plist>

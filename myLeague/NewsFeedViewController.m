@@ -14,6 +14,7 @@
 #import "ProfileViewController.h"
 #import "AdvancedStandingsTableViewController.h"
 #import "HeadlineView.h"
+#import "ScoreboardTableViewController.h"
 
 @interface NewsFeedViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *NewsFeedTable;
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *standingsTable;
 @property (weak, nonatomic) IBOutlet UIImageView *headlineImage;
 @property (weak, nonatomic) IBOutlet UILabel *headlineText;
+@property (weak, nonatomic) IBOutlet UILabel *headlineScore;
 
 @property NSArray *recentGames;    //array of uiviews
 @property int selectedProfileIndex;
@@ -54,7 +56,7 @@
                         //refresh page
                         [self setupStandingsTable];
                         [self setupNavBar];
-                        //[self createScoreboard: true];
+                        [self createScoreboard: true];
                     }
                 }];
             }else{
@@ -140,12 +142,17 @@
     
     if([[[self.recentGames objectAtIndex:index] objectForKey:@"headlineColor"] isEqualToString:@"white"]){
         self.headlineText.textColor = [UIColor whiteColor];
+        self.headlineScore.textColor = [UIColor whiteColor];
     }else{
         self.headlineText.textColor = [UIColor blackColor];
+        self.headlineScore.textColor = [UIColor blackColor];
     }
     
     self.headlineText.text = [[self.recentGames objectAtIndex:index] objectForKey:@"headlineText"];
     [self.headlineText setAlpha:0.0f];
+    self.headlineScore.text = [self generateHeadlineScore: [self.recentGames objectAtIndex:index]];
+    self.headlineText.numberOfLines = 0;
+    [self.headlineText sizeToFit];
     
     PFFile *headlineImageFile = [[self.recentGames objectAtIndex:index] objectForKey:@"headlineImage"];
     [headlineImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -159,16 +166,39 @@
     [UIView animateWithDuration:3.0f animations:^{
         [self.headlineText setAlpha:1.0f];
         [self.headlineImage setAlpha:1.0f];
+        [self.headlineScore setAlpha:1.0f];
     } completion:^(BOOL finished) {
         //fade out
         [UIView animateWithDuration:3.0f animations:^{
             [self.headlineText setAlpha:0.0f];
             [self.headlineImage setAlpha:0.0f];
+            [self.headlineScore setAlpha:0.0f];
         } completion:^(BOOL finished){
             if(finished)
                 [self beginTicker: index + 1];
         }];
     }];
+}
+
+-(NSString*) generateHeadlineScore: (PFObject*) game{
+    NSMutableString *headline = [[NSMutableString alloc]init];
+    [headline appendString:@"(F) "];
+    for(int i = 0; i < self.members.count; i++){
+        if([[[self.members objectAtIndex:i] objectForKey:@"UserID"] isEqualToString:[game objectForKey:@"userID"]]){
+            [headline appendString:[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
+            [headline appendString:@" "];
+            [headline appendString:[game objectForKey:@"userScore"]];
+        }
+    }
+    [headline appendString:@", "];
+    for(int i = 0; i < self.members.count; i++){
+        if([[[self.members objectAtIndex:i] objectForKey:@"UserID"] isEqualToString:[game objectForKey:@"opponentID"]]){
+            [headline appendString:[[self.members objectAtIndex:i] objectForKey:@"ShortName"]];
+            [headline appendString:@" "];
+            [headline appendString:[game objectForKey:@"opponentScore"]];
+        }
+    }
+    return headline;
 }
 
 -(void) setupNavBar {
@@ -205,6 +235,10 @@
     }else if([[segue identifier] isEqualToString:@"NewsFeedAdvancedStandingsSegue"]){
         AdvancedStandingsTableViewController *astvc = [segue destinationViewController];
         astvc.members = self.members;
+    }else if([[segue identifier] isEqualToString:@"NewsFeedScoreboardSegue"]){
+        ScoreboardTableViewController *stvc = [segue destinationViewController];
+        stvc.games = self.recentGames;
+        stvc.members = self.members;
     }
 }
 

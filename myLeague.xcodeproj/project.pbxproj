@@ -10,6 +10,9 @@
 		3D068D541B6553C600ADD804 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D068D531B6553C600ADD804 /* GameViewController.m */; };
 		3D068D571B65557900ADD804 /* GameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D068D561B65557900ADD804 /* GameService.m */; };
 		3D068D5A1B6571C100ADD804 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D068D591B6571C100ADD804 /* UserService.m */; };
+		3D28979D1B6DBED8009FBF10 /* ScoreboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D28979B1B6DBED8009FBF10 /* ScoreboardTableViewCell.m */; };
+		3D28979E1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D28979C1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib */; };
+		3D2897A11B6DC102009FBF10 /* ScoreboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2897A01B6DC102009FBF10 /* ScoreboardTableViewController.m */; };
 		3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40045A1B2507D7009E7A2D /* StandingsCell.xib */; };
 		3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */; };
 		3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */; };
@@ -25,6 +28,12 @@
 		3D616FCA1B1AA9AF0044E88B /* AddGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FC91B1AA9AF0044E88B /* AddGameViewController.m */; };
 		3D616FCD1B1BD09D0044E88B /* SearchLeagueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */; };
 		3D616FD01B1BE2060044E88B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D616FCF1B1BE2060044E88B /* User.m */; };
+		3D67135A1B6DAD3D00B90748 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6713541B6DAD3C00B90748 /* Bolts.framework */; };
+		3D67135B1B6DAD3D00B90748 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6713551B6DAD3C00B90748 /* Parse.framework */; };
+		3D67135C1B6DAD3D00B90748 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6713561B6DAD3C00B90748 /* ParseCrashReporting.framework */; };
+		3D67135D1B6DAD3D00B90748 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6713571B6DAD3C00B90748 /* ParseFacebookUtils.framework */; };
+		3D67135E1B6DAD3D00B90748 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6713581B6DAD3D00B90748 /* ParseFacebookUtilsV4.framework */; };
+		3D67135F1B6DAD3D00B90748 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6713591B6DAD3D00B90748 /* ParseUI.framework */; };
 		3D8285FF1B05AE7600E948BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8285FE1B05AE7600E948BE /* main.m */; };
 		3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286011B05AE7600E948BE /* AppDelegate.m */; };
 		3D8286051B05AE7600E948BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286041B05AE7600E948BE /* ViewController.m */; };
@@ -72,6 +81,11 @@
 		3D068D561B65557900ADD804 /* GameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameService.m; sourceTree = "<group>"; };
 		3D068D581B6571C100ADD804 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
 		3D068D591B6571C100ADD804 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
+		3D28979A1B6DBED8009FBF10 /* ScoreboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardTableViewCell.h; sourceTree = "<group>"; };
+		3D28979B1B6DBED8009FBF10 /* ScoreboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreboardTableViewCell.m; sourceTree = "<group>"; };
+		3D28979C1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreboardTableViewCell.xib; sourceTree = "<group>"; };
+		3D28979F1B6DC102009FBF10 /* ScoreboardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardTableViewController.h; sourceTree = "<group>"; };
+		3D2897A01B6DC102009FBF10 /* ScoreboardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreboardTableViewController.m; sourceTree = "<group>"; };
 		3D40045A1B2507D7009E7A2D /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
 		3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandingsTableViewCell.h; sourceTree = "<group>"; };
 		3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsTableViewCell.m; sourceTree = "<group>"; };
@@ -98,6 +112,12 @@
 		3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchLeagueTableViewController.m; sourceTree = "<group>"; };
 		3D616FCE1B1BE2060044E88B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3D616FCF1B1BE2060044E88B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3D6713541B6DAD3C00B90748 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "parse-library-1.7.5/Bolts.framework"; sourceTree = "<group>"; };
+		3D6713551B6DAD3C00B90748 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "parse-library-1.7.5/Parse.framework"; sourceTree = "<group>"; };
+		3D6713561B6DAD3C00B90748 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = "parse-library-1.7.5/ParseCrashReporting.framework"; sourceTree = "<group>"; };
+		3D6713571B6DAD3C00B90748 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "parse-library-1.7.5/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		3D6713581B6DAD3D00B90748 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = "parse-library-1.7.5/ParseFacebookUtilsV4.framework"; sourceTree = "<group>"; };
+		3D6713591B6DAD3D00B90748 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "parse-library-1.7.5/ParseUI.framework"; sourceTree = "<group>"; };
 		3D8285F91B05AE7600E948BE /* myLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8285FD1B05AE7600E948BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D8285FE1B05AE7600E948BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -156,6 +176,12 @@
 				3D8286331B05AF0F00E948BE /* CoreGraphics.framework in Frameworks */,
 				3D8286311B05AF0900E948BE /* CFNetwork.framework in Frameworks */,
 				3DAF47B51B22886200EE2D38 /* Bolts.framework in Frameworks */,
+				3D67135A1B6DAD3D00B90748 /* Bolts.framework in Frameworks */,
+				3D67135B1B6DAD3D00B90748 /* Parse.framework in Frameworks */,
+				3D67135C1B6DAD3D00B90748 /* ParseCrashReporting.framework in Frameworks */,
+				3D67135D1B6DAD3D00B90748 /* ParseFacebookUtils.framework in Frameworks */,
+				3D67135E1B6DAD3D00B90748 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				3D67135F1B6DAD3D00B90748 /* ParseUI.framework in Frameworks */,
 				3DAF47B61B22886200EE2D38 /* Parse.framework in Frameworks */,
 				3DAF47B71B22886200EE2D38 /* ParseCrashReporting.framework in Frameworks */,
 				3DAF47B81B22886200EE2D38 /* ParseFacebookUtils.framework in Frameworks */,
@@ -177,6 +203,12 @@
 		3D4004091B234A74009E7A2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D6713541B6DAD3C00B90748 /* Bolts.framework */,
+				3D6713551B6DAD3C00B90748 /* Parse.framework */,
+				3D6713561B6DAD3C00B90748 /* ParseCrashReporting.framework */,
+				3D6713571B6DAD3C00B90748 /* ParseFacebookUtils.framework */,
+				3D6713581B6DAD3D00B90748 /* ParseFacebookUtilsV4.framework */,
+				3D6713591B6DAD3D00B90748 /* ParseUI.framework */,
 				3D8286421B05AF5000E948BE /* libsqlite3.dylib */,
 				3D8286401B05AF4600E948BE /* libz.dylib */,
 				3D82863E1B05AF3E00E948BE /* SystemConfiguration.framework */,
@@ -203,6 +235,9 @@
 				3D420FE31B57460E004CECE5 /* HeadlineView.h */,
 				3D420FE41B57460E004CECE5 /* HeadlineView.m */,
 				3D420FE11B573BE3004CECE5 /* HeadlineView.xib */,
+				3D28979A1B6DBED8009FBF10 /* ScoreboardTableViewCell.h */,
+				3D28979B1B6DBED8009FBF10 /* ScoreboardTableViewCell.m */,
+				3D28979C1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib */,
 				3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */,
 				3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */,
 				3D40045A1B2507D7009E7A2D /* StandingsCell.xib */,
@@ -231,6 +266,8 @@
 				3D9D9CBA1B378D7200517FE8 /* ProfileViewController.m */,
 				3DF50F731B32645500C2360D /* RequestsTableViewController.h */,
 				3DF50F741B32645500C2360D /* RequestsTableViewController.m */,
+				3D28979F1B6DC102009FBF10 /* ScoreboardTableViewController.h */,
+				3D2897A01B6DC102009FBF10 /* ScoreboardTableViewController.m */,
 				3D616FCB1B1BD09D0044E88B /* SearchLeagueTableViewController.h */,
 				3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */,
 				3D8286031B05AE7600E948BE /* ViewController.h */,
@@ -418,6 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D28979E1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib in Resources */,
 				3D525E431B42D52D00C964A4 /* AdvancedStandingsCell.xib in Resources */,
 				3D8286081B05AE7600E948BE /* Main.storyboard in Resources */,
 				3D420FE21B573BE3004CECE5 /* HeadlineView.xib in Resources */,
@@ -448,6 +486,7 @@
 				3D068D541B6553C600ADD804 /* GameViewController.m in Sources */,
 				3D8286051B05AE7600E948BE /* ViewController.m in Sources */,
 				3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */,
+				3D28979D1B6DBED8009FBF10 /* ScoreboardTableViewCell.m in Sources */,
 				3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */,
 				3D068D5A1B6571C100ADD804 /* UserService.m in Sources */,
 				3D616FC51B1A7D760044E88B /* League.m in Sources */,
@@ -461,6 +500,7 @@
 				3D616FCA1B1AA9AF0044E88B /* AddGameViewController.m in Sources */,
 				3D068D571B65557900ADD804 /* GameService.m in Sources */,
 				3D420FE51B57460E004CECE5 /* HeadlineView.m in Sources */,
+				3D2897A11B6DC102009FBF10 /* ScoreboardTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,8 +633,10 @@
 					"$(inherited)",
 					"/Users/bhafenri/Downloads/parse-library-1.7.2",
 					"/Users/bhafenri/Downloads/parse-library-1.6.1",
+					"$(PROJECT_DIR)/parse-library-1.7.5",
 				);
 				INFOPLIST_FILE = myLeague/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -616,8 +658,10 @@
 					"$(inherited)",
 					"/Users/bhafenri/Downloads/parse-library-1.7.2",
 					"/Users/bhafenri/Downloads/parse-library-1.6.1",
+					"$(PROJECT_DIR)/parse-library-1.7.5",
 				);
 				INFOPLIST_FILE = myLeague/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",

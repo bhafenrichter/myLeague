@@ -79,7 +79,6 @@
 }
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"StandingsCell";
     StandingsTableViewCell *cell = [self.previousMatchupsTable dequeueReusableCellWithIdentifier:CellIdentifier];
