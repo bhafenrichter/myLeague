@@ -18,6 +18,27 @@
 
 @implementation ViewController
 
+
+-(void) viewDidAppear:(BOOL)animated{
+    AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+    if([PFUser currentUser] != nil && ap.isLoggedIn == false){
+        // Do stuff after successful login.
+        PFUser *user = [PFUser currentUser];
+        
+        ap.user.userID = [user objectId];
+        ap.user.username = [user objectForKey:@"username"];
+        //TODO: add support later
+        ap.user.profilePictureUrl = @"";
+        ap.user.email = [user objectForKey:@"email"];
+        ap.user.firstName = [user objectForKey:@"firstName"];
+        ap.user.lastName = [user objectForKey:@"lastName"];
+        ap.user.profileMotto = [user objectForKey:@"profileMotto"];
+        ap.user.profilePictureUrl = [user objectForKey:@"profilePictureUrl"];
+        ap.isLoggedIn = true;
+        [self performSegueWithIdentifier:@"LoginLeagueListSegue" sender:self];
+    }
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

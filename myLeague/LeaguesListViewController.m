@@ -14,7 +14,7 @@
 
 @interface LeaguesListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *leagueList;
-@property NSArray *leagues;
+@property NSMutableArray *leagues;
 @property NSInteger *selectedLeagueIndex;
 @end
 
@@ -23,16 +23,6 @@
 -(void) viewDidAppear:(BOOL)animated {
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     NSString *userID = ap.user.userID;
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"UserLeague"];
-    [query whereKey:@"UserID" containsString:userID];
-    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error){
-        if(!error){
-            
-        }
-    }];
-    
-    [self getLeagues];
 }
 
 - (void)viewDidLoad {
@@ -57,8 +47,13 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            //NSLog(@"Successfully retrieved %lu leagues.", (unsigned long) objects.count);
-            self.leagues = [[NSArray alloc] initWithArray:objects];
+            NSArray *leagueIDs = [[NSArray alloc] initWithArray:objects];
+            self.leagues = [[NSMutableArray alloc] init];
+            for(int i = 0; i < leagueIDs.count; i++){
+                PFQuery *query = [PFQuery queryWithClassName:@"League"];
+                PFObject *league = [query getObjectWithId:[[leagueIDs objectAtIndex:i] objectForKey:@"LeagueID"]];
+                [self.leagues addObject:league];
+            }
             
             //update table
             [self.leagueList reloadData];
@@ -76,25 +71,14 @@
     return self.leagues.count;
 }
 
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [self.leagueList dequeueReusableCellWithIdentifier:@"LeagueCell" forIndexPath:indexPath];
 
-    dispatch_async(kBgQueue, ^{
-        PFObject *curObject = [self.leagues objectAtIndex:indexPath.row];
-        NSString *leagueID = [curObject objectForKey:@"LeagueID"];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"League"];
-        PFObject *cur = [query getObjectWithId:leagueID];
-        
-        //NSLog(@"League Object: %@", cur);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.textLabel.text = [cur objectForKey:@"LeagueName"];
-            cell.detailTextLabel.text = [cur objectForKey:@"LeagueType"];
-        });
-        
-    });
+    PFObject *curObject = [self.leagues objectAtIndex:indexPath.row];
+    cell.textLabel.text = [curObject objectForKey:@"LeagueName"];
+    cell.detailTextLabel.text = @" ";
+    cell.detailTextLabel.text = [curObject objectForKey:@"LeagueType"];
+    
     return cell;
 }
 
@@ -112,10 +96,10 @@
         PFQuery *query = [PFQuery queryWithClassName:@"League"];
         
         //gets the league based on the table selected
-        PFObject *object = [query getObjectWithId:[[self.leagues objectAtIndex:self.selectedLeagueIndex] objectForKey:@"LeagueID"]];
+        PFObject *object = [query getObjectWithId:[[self.leagues objectAtIndex:self.selectedLeagueIndex] objectId]];
 
         League *selected = [[League alloc]init];
-        selected.leagueId = [[self.leagues objectAtIndex:self.selectedLeagueIndex] objectForKey:@"LeagueID"];
+        selected.leagueId = [ object objectId];
         selected.leagueName = [object objectForKey:@"LeagueName"];
         selected.leagueMotto = [object objectForKey:@"LeagueMotto"];
         selected.leagueType = [object objectForKey:@"LeagueType"];

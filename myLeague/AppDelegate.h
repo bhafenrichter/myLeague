@@ -15,5 +15,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) League *selectedLeague;
 @property (strong, nonatomic) User *user;
+@property bool *isLoggedIn;
 @end
 
