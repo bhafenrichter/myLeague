@@ -20,15 +20,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *DateDay;
 @property (weak, nonatomic) IBOutlet UILabel *DateTime;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property League *league;
 @property bool isBlackFont;
 @end
 
 @implementation AddGameViewController
-- (IBAction)cancelAddGame:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 //called every time the UI is loaded
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 -(void) viewDidAppear:(BOOL)animated {
@@ -286,6 +285,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 #pragma mark - Navigation

@@ -13,6 +13,7 @@
 		3D28979D1B6DBED8009FBF10 /* ScoreboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D28979B1B6DBED8009FBF10 /* ScoreboardTableViewCell.m */; };
 		3D28979E1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D28979C1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib */; };
 		3D2897A11B6DC102009FBF10 /* ScoreboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2897A01B6DC102009FBF10 /* ScoreboardTableViewController.m */; };
+		3D2897A41B7D2FAB009FBF10 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2897A31B7D2FAB009FBF10 /* SettingsViewController.m */; };
 		3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40045A1B2507D7009E7A2D /* StandingsCell.xib */; };
 		3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */; };
 		3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4004601B2CA76E009E7A2D /* AddUserTableViewController.m */; };
@@ -86,6 +87,8 @@
 		3D28979C1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreboardTableViewCell.xib; sourceTree = "<group>"; };
 		3D28979F1B6DC102009FBF10 /* ScoreboardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardTableViewController.h; sourceTree = "<group>"; };
 		3D2897A01B6DC102009FBF10 /* ScoreboardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreboardTableViewController.m; sourceTree = "<group>"; };
+		3D2897A21B7D2FAB009FBF10 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3D2897A31B7D2FAB009FBF10 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3D40045A1B2507D7009E7A2D /* StandingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandingsCell.xib; sourceTree = "<group>"; };
 		3D40045C1B2508C6009E7A2D /* StandingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandingsTableViewCell.h; sourceTree = "<group>"; };
 		3D40045D1B2508C6009E7A2D /* StandingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandingsTableViewCell.m; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				3D2897A01B6DC102009FBF10 /* ScoreboardTableViewController.m */,
 				3D616FCB1B1BD09D0044E88B /* SearchLeagueTableViewController.h */,
 				3D616FCC1B1BD09D0044E88B /* SearchLeagueTableViewController.m */,
+				3D2897A21B7D2FAB009FBF10 /* SettingsViewController.h */,
+				3D2897A31B7D2FAB009FBF10 /* SettingsViewController.m */,
 				3D8286031B05AE7600E948BE /* ViewController.h */,
 				3D8286041B05AE7600E948BE /* ViewController.m */,
 			);
@@ -490,6 +495,7 @@
 				3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */,
 				3D068D5A1B6571C100ADD804 /* UserService.m in Sources */,
 				3D616FC51B1A7D760044E88B /* League.m in Sources */,
+				3D2897A41B7D2FAB009FBF10 /* SettingsViewController.m in Sources */,
 				3D40045E1B2508C6009E7A2D /* StandingsTableViewCell.m in Sources */,
 				3D5DC6621B16A65500C72049 /* NewsFeedViewController.m in Sources */,
 				3D8285FF1B05AE7600E948BE /* main.m in Sources */,

@@ -46,6 +46,12 @@
                  PFObject *userLeague = [PFObject objectWithClassName:@"UserLeague"];
                  userLeague[@"UserID"] = ap.user.userID;
                  userLeague[@"LeagueID"] = [league objectId];
+                 userLeague[@"ShortName"] = [NSString stringWithFormat:@"%@. %@", [ap.user.firstName substringToIndex:1], ap.user.lastName];
+                 userLeague[@"Wins"] = @"0";
+                 userLeague[@"PointsAllowed"] = @"0";
+                 userLeague[@"PointsScored"] = @"0";
+                 userLeague[@"Losses"] = @"0";
+                 userLeague[@"ProfilePictureUrl"] = ap.user.profilePictureUrl;
                  [userLeague saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                      if(!error){
                          NSLog(@"Assigned user %@ to %@", ap.user.userID, [league objectForKey:@"LeagueName"]);
@@ -57,7 +63,7 @@
                          
                          ap.selectedLeague = selected;
                          
-                         [self performSegueWithIdentifier:@"CreateLeagueNewsFeed" sender:self];
+                         [self.navigationController popViewControllerAnimated:YES];
 
                      }else{
                          NSLog(@"Error Creating League");
