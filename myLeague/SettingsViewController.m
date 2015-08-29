@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     [self setupUI];
-    [self getLeagues];
+    
     self.leaguesList.dataSource = self;
     self.leaguesList.delegate = self;
 }
@@ -41,7 +41,7 @@
     self.lastNameField.text = ap.user.lastName;
     
     dispatch_async(kBgQueue, ^{
-        UIImage *img = [UserService GetUserPicture:ap.user.profilePictureUrl];
+        UIImage *img = [UIImage imageWithData:[UserService GetUserPicture:ap.user.profilePictureUrl]];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.profilePictureField.image = img;
         });
@@ -50,6 +50,8 @@
 }
 
 -(void) getLeagues{
+    
+    
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     NSString *userID = ap.user.userID;
     PFQuery *query = [PFQuery queryWithClassName:@"UserLeague"];
@@ -86,6 +88,7 @@
     
     PFObject *curObject = [self.leagues objectAtIndex:indexPath.row];
     cell.textLabel.text = [curObject objectForKey:@"LeagueName"];
+    cell.detailTextLabel.text = @" ";
     cell.detailTextLabel.text = [curObject objectForKey:@"LeagueType"];
     
     return cell;

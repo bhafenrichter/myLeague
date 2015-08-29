@@ -18,6 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="U1f-gQ-E4A">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
@@ -28,6 +29,8 @@
                                 <rect key="frame" x="33" y="263" width="309" height="141"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+=======
+>>>>>>> parent of b29427e... UI and Settings
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="bhafenri" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6H-Tl-bUC">
                                 <rect key="frame" x="72" y="281" width="230" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,7 +44,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNK-52-UiG">
                                 <rect key="frame" x="72" y="357" width="107" height="30"/>
                                 <state key="normal" title="Create Account">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -58,36 +60,47 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gdD-go-f1n" firstAttribute="top" secondItem="DvH-Fi-6A9" secondAttribute="bottom" constant="8" id="13I-xA-aVM"/>
+<<<<<<< HEAD
                             <constraint firstAttribute="trailingMargin" secondItem="MDz-fA-w5i" secondAttribute="trailing" constant="17" id="2dH-VS-Hei"/>
 <<<<<<< Updated upstream
                             <constraint firstItem="X6H-Tl-bUC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="261" id="Com-60-eKY"/>
 =======
                             <constraint firstItem="MDz-fA-w5i" firstAttribute="top" secondItem="X6H-Tl-bUC" secondAttribute="bottom" constant="-48" id="5r8-pK-CYU"/>
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b29427e... UI and Settings
                             <constraint firstItem="DvH-Fi-6A9" firstAttribute="top" secondItem="X6H-Tl-bUC" secondAttribute="bottom" constant="8" id="FRa-S6-dKG"/>
                             <constraint firstItem="mNK-52-UiG" firstAttribute="top" secondItem="DvH-Fi-6A9" secondAttribute="bottom" constant="8" id="LmZ-Pc-NnC"/>
                             <constraint firstItem="DvH-Fi-6A9" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="ORV-k5-fse"/>
                             <constraint firstItem="DvH-Fi-6A9" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="PuP-Jb-wf3"/>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MDz-fA-w5i" secondAttribute="bottom" constant="263" id="YEq-kK-yVo"/>
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b29427e... UI and Settings
                             <constraint firstItem="X6H-Tl-bUC" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="10:29" id="Yav-n6-wa8"/>
                             <constraint firstItem="gdD-go-f1n" firstAttribute="trailing" secondItem="DvH-Fi-6A9" secondAttribute="trailing" id="ZRd-Z8-7Pz"/>
                             <constraint firstItem="X6H-Tl-bUC" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ZiB-gH-EnO"/>
                             <constraint firstItem="DvH-Fi-6A9" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="10:29" id="naT-SG-SGI"/>
                             <constraint firstItem="mNK-52-UiG" firstAttribute="leading" secondItem="DvH-Fi-6A9" secondAttribute="leading" id="q0f-45-mmo"/>
+<<<<<<< HEAD
                             <constraint firstItem="MDz-fA-w5i" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="17" id="yF3-E9-z8o"/>
                             <constraint firstItem="MDz-fA-w5i" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="243" id="zQG-nV-8jx"/>
+=======
+>>>>>>> parent of b29427e... UI and Settings
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yFE-xk-Ekx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+<<<<<<< HEAD
                         <outlet property="enclosedView" destination="MDz-fA-w5i" id="vJ9-qQ-rzc"/>
+=======
+>>>>>>> parent of b29427e... UI and Settings
                         <outlet property="tv_password" destination="DvH-Fi-6A9" id="u92-B3-bSo"/>
                         <outlet property="tv_username" destination="X6H-Tl-bUC" id="KaA-LJ-mdD"/>
-                        <outlet property="view" destination="MDz-fA-w5i" id="K9X-2t-zfv"/>
                         <segue destination="SH1-Xw-emK" kind="show" identifier="LoginLeagueListSegue" id="UoM-wr-X4H"/>
                     </connections>
                 </viewController>
@@ -125,14 +138,14 @@
                                                     <rect key="frame" x="15" y="20" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dbe-DQ-GEk">
                                                     <rect key="frame" x="15" y="40" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -237,6 +250,15 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="blank-user" translatesAutoresizingMaskIntoConstraints="NO" id="ybR-tb-6XI">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="172"/>
                                     </imageView>
+<<<<<<< HEAD
+=======
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUj-mr-dCJ">
+                                        <rect key="frame" x="8" y="106" width="327" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+>>>>>>> parent of b29427e... UI and Settings
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pO-vY-PUf">
                                         <rect key="frame" x="8" y="144" width="327" height="30"/>
                                         <constraints>
@@ -244,7 +266,7 @@
                                             <constraint firstAttribute="width" secondItem="0pO-vY-PUf" secondAttribute="height" multiplier="109:7" id="xaz-MU-y13"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -465,6 +487,7 @@
         <!--Add Game-->
         <scene sceneID="3EM-xY-8Sg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ru8-a8-ET5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Add Game" id="UbR-Rr-Xvu" customClass="AddGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ueb-dC-C3I"/>
@@ -474,7 +497,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rXA-Ja-A8M">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rXA-Ja-A8M">
                                 <rect key="frame" x="-4" y="64" width="383" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rXA-Ja-A8M" secondAttribute="height" multiplier="383:99" id="4dK-IJ-GoK"/>
@@ -654,7 +677,6 @@
                         <segue destination="9eN-Ud-JHC" kind="show" identifier="AddGameSearchLeague" id="iOJ-Zf-LqV"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ru8-a8-ET5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.5" y="-509.5"/>
         </scene>
@@ -1369,13 +1391,13 @@
                                     <action selector="logout:" destination="ju5-8J-DsN" eventType="touchUpInside" id="GPJ-QT-AY8"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxq-oR-hEk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kxq-oR-hEk">
                                 <rect key="frame" x="16" y="72" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kxq-oR-hEk" secondAttribute="height" multiplier="1:1" id="NDJ-48-rET"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-38-Zy2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-38-Zy2">
                                 <rect key="frame" x="159" y="141" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1387,6 +1409,7 @@
                                     <constraint firstAttribute="width" secondItem="9of-nD-KJ7" secondAttribute="height" multiplier="349:200" id="Spg-2P-5l1"/>
                                     <constraint firstAttribute="width" secondItem="9of-nD-KJ7" secondAttribute="height" multiplier="343:200" id="hBi-Ea-0S0"/>
                                 </constraints>
+<<<<<<< HEAD
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeagueCell" textLabel="Rjk-MD-TyX" detailTextLabel="bWa-bu-AdI" style="IBUITableViewCellStyleSubtitle" id="z7m-vF-cOK">
                                         <rect key="frame" x="0.0" y="22" width="343" height="44"/>
@@ -1413,19 +1436,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+=======
+>>>>>>> parent of b29427e... UI and Settings
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Spg-2P-5l1"/>
                                     </mask>
                                 </variation>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Leagues:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFs-dP-qR4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Current Leagues:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFs-dP-qR4">
                                 <rect key="frame" x="16" y="205" width="132" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mxj-2a-QBH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mxj-2a-QBH">
                                 <rect key="frame" x="159" y="103" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1436,7 +1461,6 @@
                             <constraint firstItem="9of-nD-KJ7" firstAttribute="trailing" secondItem="1pb-dE-AKu" secondAttribute="trailingMargin" id="0lU-mJ-bmX"/>
                             <constraint firstItem="hYC-9l-WhV" firstAttribute="top" secondItem="9of-nD-KJ7" secondAttribute="bottom" constant="8" id="347-0k-4p9"/>
                             <constraint firstItem="9of-nD-KJ7" firstAttribute="leading" secondItem="1pb-dE-AKu" secondAttribute="leadingMargin" id="3G7-uL-LLi"/>
-                            <constraint firstItem="QFs-dP-qR4" firstAttribute="leading" secondItem="1pb-dE-AKu" secondAttribute="leadingMargin" id="4Ew-ds-mKb"/>
                             <constraint firstItem="pR7-iR-9Hi" firstAttribute="top" secondItem="hYC-9l-WhV" secondAttribute="bottom" constant="195" id="6Mf-NF-rIk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9of-nD-KJ7" secondAttribute="trailing" constant="-6" id="6Z7-vQ-kKD"/>
                             <constraint firstItem="hYC-9l-WhV" firstAttribute="top" secondItem="9of-nD-KJ7" secondAttribute="bottom" constant="8" id="8QY-SN-vDU"/>
@@ -1445,7 +1469,6 @@
                             <constraint firstAttribute="centerX" secondItem="hYC-9l-WhV" secondAttribute="centerX" constant="3.5" id="BcT-dC-mFo"/>
                             <constraint firstItem="mxj-2a-QBH" firstAttribute="leading" secondItem="Kxq-oR-hEk" secondAttribute="trailing" constant="18" id="KWf-Ea-jFv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kxq-oR-hEk" secondAttribute="trailing" constant="218" id="Mhy-Fr-Axb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QFs-dP-qR4" secondAttribute="trailing" constant="211" id="P4V-Mp-bBg"/>
                             <constraint firstItem="9of-nD-KJ7" firstAttribute="leading" secondItem="1pb-dE-AKu" secondAttribute="leadingMargin" id="Pfm-MJ-Fph"/>
                             <constraint firstItem="9of-nD-KJ7" firstAttribute="top" secondItem="QFs-dP-qR4" secondAttribute="bottom" constant="8" id="XLn-FX-6Un"/>
                             <constraint firstItem="hYC-9l-WhV" firstAttribute="top" secondItem="9of-nD-KJ7" secondAttribute="bottom" constant="8" id="aY1-Vn-8p3"/>
@@ -1483,14 +1506,18 @@
         </scene>
     </scenes>
     <resources>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <image name="background" width="720" height="1080"/>
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b29427e... UI and Settings
         <image name="blank-user" width="700" height="700"/>
         <image name="circle-button" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <segue reference="eri-gs-5Vy"/>
 =======
@@ -1507,5 +1534,14 @@
         <segue reference="WmA-ye-Icl"/>
         <segue reference="YDh-18-exK"/>
 >>>>>>> Stashed changes
+=======
+        <segue reference="ETQ-QI-5ok"/>
+        <segue reference="Ld4-A3-qUA"/>
+        <segue reference="eri-gs-5Vy"/>
+        <segue reference="otE-37-Dbm"/>
+        <segue reference="WmA-ye-Icl"/>
+        <segue reference="YDh-18-exK"/>
+        <segue reference="7aZ-0U-G9b"/>
+>>>>>>> parent of b29427e... UI and Settings
     </inferredMetricsTieBreakers>
 </document>
