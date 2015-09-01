@@ -1065,8 +1065,8 @@
         <image name="blank-user" width="700" height="700"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WBU-D6-4bv"/>
-        <segue reference="TI3-QN-8iD"/>
         <segue reference="TUh-Av-lTD"/>
+        <segue reference="ERW-WO-evW"/>
+        <segue reference="WBU-D6-4bv"/>
     </inferredMetricsTieBreakers>
 </document>
