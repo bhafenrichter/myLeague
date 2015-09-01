@@ -277,8 +277,7 @@
         acontrollerobject.delegate = self; // protocol listener
         [self.navigationController pushViewController:acontrollerobject animated:YES];
     }
-    
-    [self.view endEditing:true];
+    NSLog(@"%@", [touch view]);
     
 }
 
