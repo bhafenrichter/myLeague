@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *tv_username;
 @property (weak, nonatomic) IBOutlet UITextField *tv_password;
 @property (weak, nonatomic) IBOutlet UIView *enclosedView;
-@property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
 
 @end
 

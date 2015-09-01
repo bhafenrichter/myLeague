@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *opponentScore;
 @property (weak, nonatomic) IBOutlet UILabel *timeOfGame;
 @property (weak, nonatomic) IBOutlet UILabel *dateOfGame;
-@property (weak, nonatomic) IBOutlet UITextView *headline;
+@property (weak, nonatomic) IBOutlet UITextField *headline;
 @property (weak, nonatomic) IBOutlet UIImageView *headlineImage;
 @property PFObject *opponent;
 @property (weak, nonatomic) IBOutlet UIButton *toggleColor;

@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.tableView reloadData];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 

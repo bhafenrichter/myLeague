@@ -39,7 +39,6 @@
 		3D8285FF1B05AE7600E948BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8285FE1B05AE7600E948BE /* main.m */; };
 		3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286011B05AE7600E948BE /* AppDelegate.m */; };
 		3D8286051B05AE7600E948BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286041B05AE7600E948BE /* ViewController.m */; };
-		3D8286081B05AE7600E948BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8286061B05AE7600E948BE /* Main.storyboard */; };
 		3D82860D1B05AE7600E948BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D82860B1B05AE7600E948BE /* LaunchScreen.xib */; };
 		3D8286191B05AE7600E948BE /* myLeagueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8286181B05AE7600E948BE /* myLeagueTests.m */; };
 		3D82862F1B05AF0200E948BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D82862E1B05AF0200E948BE /* AudioToolbox.framework */; };
@@ -63,6 +62,7 @@
 		3DAF47BD1B228D8900EE2D38 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47BC1B228D8900EE2D38 /* Social.framework */; };
 		3DB411421B1D3C2400A609B5 /* CreateLeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */; };
 		3DF50F751B32645500C2360D /* RequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF50F741B32645500C2360D /* RequestsTableViewController.m */; };
+		3DFCD5E01B93AAB4002EC3EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DFCD5DF1B93AAB4002EC3EE /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,7 +129,6 @@
 		3D8286011B05AE7600E948BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3D8286031B05AE7600E948BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3D8286041B05AE7600E948BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3D8286071B05AE7600E948BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D82860C1B05AE7600E948BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3D8286121B05AE7600E948BE /* myLeagueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myLeagueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8286171B05AE7600E948BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +157,7 @@
 		3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLeagueViewController.m; sourceTree = "<group>"; };
 		3DF50F731B32645500C2360D /* RequestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsTableViewController.h; sourceTree = "<group>"; };
 		3DF50F741B32645500C2360D /* RequestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsTableViewController.m; sourceTree = "<group>"; };
+		3DFCD5DF1B93AAB4002EC3EE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +231,7 @@
 		3D420FE61B607B0C004CECE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3D8286061B05AE7600E948BE /* Main.storyboard */,
+				3DFCD5DF1B93AAB4002EC3EE /* Main.storyboard */,
 				3D525E471B42D6E700C964A4 /* AdvancedStandingsTableViewCell.h */,
 				3D525E481B42D6E700C964A4 /* AdvancedStandingsTableViewCell.m */,
 				3D525E421B42D52D00C964A4 /* AdvancedStandingsCell.xib */,
@@ -463,7 +463,7 @@
 				3D28979E1B6DBED8009FBF10 /* ScoreboardTableViewCell.xib in Resources */,
 				3D525E431B42D52D00C964A4 /* AdvancedStandingsCell.xib in Resources */,
 				3D5C972C1B913DAE0020C21F /* Images.xcassets in Resources */,
-				3D8286081B05AE7600E948BE /* Main.storyboard in Resources */,
+				3DFCD5E01B93AAB4002EC3EE /* Main.storyboard in Resources */,
 				3D420FE21B573BE3004CECE5 /* HeadlineView.xib in Resources */,
 				3D40045B1B2507D7009E7A2D /* StandingsCell.xib in Resources */,
 				3D82860D1B05AE7600E948BE /* LaunchScreen.xib in Resources */,
@@ -529,14 +529,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3D8286061B05AE7600E948BE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D8286071B05AE7600E948BE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3D82860B1B05AE7600E948BE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

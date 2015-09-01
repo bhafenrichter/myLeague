@@ -17,9 +17,7 @@
 #import "ScoreboardTableViewController.h"
 
 @interface NewsFeedViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *NewsFeedTable;
 @property (weak, nonatomic) IBOutlet UINavigationItem *actionBarTitle;
-@property (weak, nonatomic) IBOutlet UIPageControl *gamePageControl;
 @property (weak, nonatomic) IBOutlet UIView *gameView;
 @property (weak, nonatomic) IBOutlet UITableView *standingsTable;
 @property (weak, nonatomic) IBOutlet UIImageView *headlineImage;
