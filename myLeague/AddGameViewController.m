@@ -94,6 +94,11 @@
         self.opponentNameLabel.text = [self.opponent objectForKey:@"ShortName"];
     }
     
+    self.headline.autocorrectionType = NO;
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(submitGame:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+    
      dispatch_async(abcQueue, ^{
          NSDate *localDate = [NSDate date];
          NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
