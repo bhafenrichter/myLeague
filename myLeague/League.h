@@ -13,5 +13,6 @@
 @property NSString *leagueMotto;
 @property NSString *leagueType;
 @property NSString *leagueId;
+@property NSString *leagueUrl;
 @property int gameCount;
 @end

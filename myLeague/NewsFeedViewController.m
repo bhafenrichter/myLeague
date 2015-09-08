@@ -15,6 +15,7 @@
 #import "AdvancedStandingsTableViewController.h"
 #import "HeadlineView.h"
 #import "ScoreboardTableViewController.h"
+#import "LeagueSettingsViewController.h"
 
 @interface NewsFeedViewController ()
 @property (weak, nonatomic) IBOutlet UINavigationItem *actionBarTitle;
@@ -23,9 +24,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headlineImage;
 @property (weak, nonatomic) IBOutlet UILabel *headlineText;
 @property (weak, nonatomic) IBOutlet UILabel *headlineScore;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @property NSArray *recentGames;    //array of uiviews
 @property int selectedProfileIndex;
+@property NSString *userLeagueId;
 @end
 
 @implementation NewsFeedViewController
@@ -76,11 +79,10 @@
     self.standingsTable.dataSource = self;
     self.standingsTable.delegate = self;
     
-    
     //get selected leagueid
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     self.league = ap.selectedLeague;
-    self.actionBarTitle.title = self.league.leagueName;
+    self.navigationBar.title = self.league.leagueName;
     
     //rounds corners
     self.gameView.layer.cornerRadius = 10;
@@ -239,6 +241,9 @@
         ScoreboardTableViewController *stvc = [segue destinationViewController];
         stvc.games = self.recentGames;
         stvc.members = self.members;
+    }else if([[segue identifier] isEqualToString:@"NewsFeedLeagueSettingsSegue"]){
+        LeagueSettingsViewController *lsvc = [segue destinationViewController];
+        lsvc.userLeagueId = self.userLeagueId;
     }
 }
 
@@ -264,6 +269,7 @@
         AppDelegate *ap = [[UIApplication sharedApplication] delegate];
         if([[[self.members objectAtIndex:indexPath.row - 1] objectForKey:@"UserID"] isEqualToString:ap.user.userID]){
             cell.backgroundColor = [UIColor yellowColor];
+            self.userLeagueId = [[self.members objectAtIndex:indexPath.row - 1] objectId];
         }
         
         

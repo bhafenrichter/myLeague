@@ -61,6 +61,8 @@
 		3DAF47BB1B228D8500EE2D38 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47BA1B228D8500EE2D38 /* Accounts.framework */; };
 		3DAF47BD1B228D8900EE2D38 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAF47BC1B228D8900EE2D38 /* Social.framework */; };
 		3DB411421B1D3C2400A609B5 /* CreateLeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */; };
+		3DB9F5C71B9DFA18006F3539 /* LeagueSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9F5C61B9DFA18006F3539 /* LeagueSettingsViewController.m */; };
+		3DED3D0F1B9958F7009A23CD /* LeagueService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED3D0E1B9958F7009A23CD /* LeagueService.m */; };
 		3DF50F751B32645500C2360D /* RequestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF50F741B32645500C2360D /* RequestsTableViewController.m */; };
 		3DFCD5E01B93AAB4002EC3EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DFCD5DF1B93AAB4002EC3EE /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -155,6 +157,10 @@
 		3DAF47BC1B228D8900EE2D38 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3DB411401B1D3C2400A609B5 /* CreateLeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateLeagueViewController.h; sourceTree = "<group>"; };
 		3DB411411B1D3C2400A609B5 /* CreateLeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLeagueViewController.m; sourceTree = "<group>"; };
+		3DB9F5C51B9DFA18006F3539 /* LeagueSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueSettingsViewController.h; sourceTree = "<group>"; };
+		3DB9F5C61B9DFA18006F3539 /* LeagueSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueSettingsViewController.m; sourceTree = "<group>"; };
+		3DED3D0D1B9958F7009A23CD /* LeagueService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueService.h; sourceTree = "<group>"; };
+		3DED3D0E1B9958F7009A23CD /* LeagueService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueService.m; sourceTree = "<group>"; };
 		3DF50F731B32645500C2360D /* RequestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsTableViewController.h; sourceTree = "<group>"; };
 		3DF50F741B32645500C2360D /* RequestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsTableViewController.m; sourceTree = "<group>"; };
 		3DFCD5DF1B93AAB4002EC3EE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -263,6 +269,8 @@
 				3D068D531B6553C600ADD804 /* GameViewController.m */,
 				3D4E9A8F1B12929E00A3B986 /* LeaguesListViewController.h */,
 				3D4E9A901B12929E00A3B986 /* LeaguesListViewController.m */,
+				3DB9F5C51B9DFA18006F3539 /* LeagueSettingsViewController.h */,
+				3DB9F5C61B9DFA18006F3539 /* LeagueSettingsViewController.m */,
 				3D5DC6601B16A65500C72049 /* NewsFeedViewController.h */,
 				3D5DC6611B16A65500C72049 /* NewsFeedViewController.m */,
 				3D9D9CB91B378D7200517FE8 /* ProfileViewController.h */,
@@ -297,6 +305,8 @@
 			children = (
 				3D068D551B65557900ADD804 /* GameService.h */,
 				3D068D561B65557900ADD804 /* GameService.m */,
+				3DED3D0D1B9958F7009A23CD /* LeagueService.h */,
+				3DED3D0E1B9958F7009A23CD /* LeagueService.m */,
 				3D068D581B6571C100ADD804 /* UserService.h */,
 				3D068D591B6571C100ADD804 /* UserService.m */,
 			);
@@ -489,7 +499,9 @@
 				3D9D9CBB1B378D7200517FE8 /* ProfileViewController.m in Sources */,
 				3D616FCD1B1BD09D0044E88B /* SearchLeagueTableViewController.m in Sources */,
 				3D068D541B6553C600ADD804 /* GameViewController.m in Sources */,
+				3DB9F5C71B9DFA18006F3539 /* LeagueSettingsViewController.m in Sources */,
 				3D8286051B05AE7600E948BE /* ViewController.m in Sources */,
+				3DED3D0F1B9958F7009A23CD /* LeagueService.m in Sources */,
 				3D4004611B2CA76E009E7A2D /* AddUserTableViewController.m in Sources */,
 				3D28979D1B6DBED8009FBF10 /* ScoreboardTableViewCell.m in Sources */,
 				3D8286021B05AE7600E948BE /* AppDelegate.m in Sources */,

@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *opponentScoreLabel;
 @property (weak, nonatomic) IBOutlet UITableView *previousMatchupsTable;
 @property (weak, nonatomic) IBOutlet MKMapView *gameLocationMapView;
+@property (weak, nonatomic) IBOutlet UILabel *headlineLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property PFObject *user;
 @property PFObject *opponent;
@@ -66,6 +69,13 @@
     UIImageView *opponentImage = [UserService GetUserPicture:[self.opponent objectForKey:@"ProfilePictureUrl"]];
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd/mm/yy"];
+        NSDate *date = [self.game createdAt];
+        self.dateLabel.text = [formatter stringFromDate:date];
+        [formatter setDateFormat:@"hh:mm a"];
+        self.timeLabel.text = [formatter stringFromDate:date];
+        self.headlineLabel.text = [self.game objectForKey:@"headlineText"];
         self.userNameLabel.text = [self.user objectForKey:@"ShortName"];
         self.opponentNameLabel.text = [self.opponent objectForKey:@"ShortName"];
         self.userRecordLabel.text = [NSString stringWithFormat:@"(%@ - %@)", [self.user objectForKey:@"Wins"],[self.user objectForKey:@"Losses"]];

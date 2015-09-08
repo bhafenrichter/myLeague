@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "SearchLeagueTableViewController.h"
+#import "UserService.h"
 
 @interface AddGameViewController ()
 
@@ -34,10 +35,10 @@
     if(self.opponent != nil){
         //updates picture and text of opponent
         dispatch_async(kBgQueue, ^{
-            NSURL * imageURL = [NSURL URLWithString:[self.opponent objectForKey:@"ProfilePictureUrl"]];
-            NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+            UIImage *profilePicture = [UserService GetUserPicture:[self.opponent objectForKey:@"ProfilePictureUrl"]];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.opponentPicture.image = [UIImage imageWithData:imageData];
+                self.opponentPicture.image = profilePicture;
                 self.opponentPicture.layer.cornerRadius = 20;
                 self.opponentPicture.layer.masksToBounds = YES;
                 

@@ -66,6 +66,7 @@
     league[@"Losses"] = @"0";
     league[@"PointsScored"] = @"0";
     league[@"PointsAllowed"] = @"0";
+    league[@"IsDeleted"] = [NSNumber numberWithBool:NO];
     [league saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if(!error){
             PFQuery *requestObject = [PFQuery queryWithClassName:@"LeagueRequest"];

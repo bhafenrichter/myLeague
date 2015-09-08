@@ -11,22 +11,28 @@
 #import "NewsFeedViewController.h"
 #import "AppDelegate.h"
 #import "League.h"
+#import "LeagueService.h"
+#import "UserService.h"
 
 @interface LeaguesListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *leagueList;
 @property NSMutableArray *leagues;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *requestButton;
 @property NSInteger *selectedLeagueIndex;
 @end
 
 @implementation LeaguesListViewController
 
 -(void) viewDidAppear:(BOOL)animated {
-    AppDelegate *ap = [[UIApplication sharedApplication] delegate];
-    NSString *userID = ap.user.userID;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+    NSString *userID = ap.user.userID;
+    ;
     
     //table setup
     self.leagueList.delegate = self;
@@ -44,6 +50,7 @@
     NSString *userID = ap.user.userID;
     PFQuery *query = [PFQuery queryWithClassName:@"UserLeague"];
     [query whereKey:@"UserID" containsString:userID];
+    [query whereKey:@"IsDeleted" equalTo:[NSNumber numberWithBool:NO]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -55,8 +62,10 @@
                 [self.leagues addObject:league];
             }
             
-            //update table
+            //update table and request
             [self.leagueList reloadData];
+            
+            self.requestButton.title = [NSString stringWithFormat:@"Requests (%i)",[LeagueService GetLeagueRequestsCount:userID]];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -71,6 +80,7 @@
     return self.leagues.count;
 }
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [self.leagueList dequeueReusableCellWithIdentifier:@"LeagueCell" forIndexPath:indexPath];
 
@@ -79,6 +89,15 @@
     cell.detailTextLabel.text = @" ";
     cell.detailTextLabel.text = [curObject objectForKey:@"LeagueType"];
     
+    
+    dispatch_async(kBgQueue, ^{
+        AppDelegate *ap = [[UIApplication sharedApplication] delegate];
+        UIImage *leagueImage = [UserService GetUserPicture: [curObject objectForKey:@"LeaguePictureUrl"]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.imageView.image = leagueImage;
+        });
+    });
     return cell;
 }
 
@@ -104,6 +123,7 @@
         selected.leagueMotto = [object objectForKey:@"LeagueMotto"];
         selected.leagueType = [object objectForKey:@"LeagueType"];
         selected.gameCount = [object objectForKey:@"GameCount"];
+        selected.leagueUrl = [object objectForKey:@"LeaguePictureUrl"];
         AppDelegate *ap = [[UIApplication sharedApplication] delegate];
         ap.selectedLeague = selected;
     }

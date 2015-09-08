@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "NewsFeedViewController.h"
+#import "UserService.h"
 
 @interface AddUserTableViewController ()
 @property NSArray *users;
@@ -23,41 +24,34 @@
     [self queryUsers];
 }
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 -(void) queryUsers{
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        if(!error){
-            self.users = [[NSArray alloc] initWithArray:objects];
+    dispatch_async(kBgQueue, ^{
+        self.users = [UserService GetAllUsers];
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
-        }else{
-            NSLog(error);
-        }
-    }];
+        });
+    });
 }
 
--(void) sendRequest:(NSString*) userID: (NSString*) username{
+#define batQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+-(void) sendRequest:(NSString*) userID: (PFObject*) sender{
     AppDelegate *ap = [[UIApplication sharedApplication] delegate];
     
-    PFObject *request = [[PFObject alloc] initWithClassName:@"LeagueRequest"];
-    request[@"LeagueID"] = ap.selectedLeague.leagueId;
-    request[@"InviteeUsername"] = username;
-    request[@"InviteeID"] = userID;
-    request[@"LeagueName"] = ap.selectedLeague.leagueName;
-    request[@"SenderName"] = [NSString stringWithFormat:@"%@ %@", ap.user.firstName, ap.user.lastName];
-    [request saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-        if(!error){
-            
+    dispatch_async(batQueue, ^{
+        [UserService SendLeagueRequest:userID :sender: ap.selectedLeague];
+        dispatch_async(dispatch_get_main_queue(), ^{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
-                                                            message:@"User has been successfully added!"
+                                                            message:@"Your league request was sent!"
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
             [alert show];
-            [self.navigationController popViewControllerAnimated:YES];
-        }else{
-            NSLog(error);
-        }
-    }];
+        });
+    });
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +80,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self sendRequest:[[self.users objectAtIndex:indexPath.row] objectId] :[[self.users objectAtIndex:indexPath.row] username]];
+    [self sendRequest:[[self.users objectAtIndex:indexPath.row] objectId] :[self.users objectAtIndex:indexPath.row]];
 }
 
 /*

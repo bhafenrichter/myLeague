@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "League.h"
 #import "AppDelegate.h"
+#import "LeagueService.h"
 
 @interface CreateLeagueViewController ()
 
@@ -33,13 +34,10 @@
         league[@"LeagueName"] = self.leagueName.text;
         league[@"LeagueType"] = self.leagueType.text;
         league[@"GameCount"] = @(0);
-        if(self.isPrivateSwitch.isOn){
-            league[@"isPrivate"] = [NSNumber numberWithBool:YES];
-        }else{
-            league[@"isPrivate"] = [NSNumber numberWithBool:NO];
-        }
-         [league saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-             if(!error){
+        
+        bool success = [LeagueService CreateLeague: league];
+        
+             if(!success){
                  AppDelegate *ap = [[UIApplication sharedApplication] delegate];
                  
                  //add user to league
@@ -51,6 +49,7 @@
                  userLeague[@"PointsAllowed"] = @"0";
                  userLeague[@"PointsScored"] = @"0";
                  userLeague[@"Losses"] = @"0";
+                 userLeague[@"IsDeleted"] = [NSNumber numberWithBool:NO];
                  userLeague[@"ProfilePictureUrl"] = ap.user.profilePictureUrl;
                  [userLeague saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                      if(!error){
@@ -70,7 +69,6 @@
                      }
                  }];
              }
-         }];
     }else{
         //don't create league
     }
